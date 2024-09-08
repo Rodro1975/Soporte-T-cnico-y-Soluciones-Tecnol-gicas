@@ -1,9 +1,7 @@
-// layout.js
+// app/layout.js
 import WhatsAppButton from "./components/WhatsAppButton";
 import localFont from "next/font/local";
 import "./globals.css";
-import Script from "next/script";
-
 // Configuración de fuentes locales
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,11 +16,11 @@ const geistMono = localFont({
 
 // Nueva API de Metadata
 export const metadata = {
-  title: "Soporte Técnico y Soluciones Tecnológicas",
+  title: "Home/Services",
   description:
     "Servicios profesionales de soporte técnico y soluciones tecnológicas.",
   icons: {
-    icon: "/favicon.ico", // Si tienes un favicon
+    icon: "/favicon.ico", // Ruta favicon
   },
   openGraph: {
     title: "Soporte Técnico y Soluciones Tecnológicas",
@@ -32,7 +30,7 @@ export const metadata = {
     siteName: "Soporte Técnico",
     images: [
       {
-        url: "https://www.tu-sitio.com/imagen-og.jpg", // Coloca una imagen Open Graph si la tienes
+        url: "https://www.tu-sitio.com/imagen-og.jpg",
         width: 800,
         height: 600,
         alt: "Soporte Técnico y Soluciones Tecnológicas",

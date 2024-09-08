@@ -1,12 +1,21 @@
 // app/contact/page.js
 import Link from "next/link";
 
+// app/contact/page.js
+export const metadata = {
+  title: "Contact",
+  description:
+    "Página de contacto de Soporte Técnico y Soluciones Tecnológicas.",
+};
+
 export default function Contact() {
   return (
     <div className="bg-background text-foreground">
       <header className="p-4 bg-black text-white">
         <nav className="container mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-bold">Soporte Técnico</h1>
+          <h1 className="text-xl font-light">
+            SUPPORT AND TECHNOLOGICAL SOLUTIONS
+          </h1>
           <ul className="flex space-x-4">
             <li>
               <Link href="/">Home</Link>
@@ -97,7 +106,7 @@ export default function Contact() {
           &copy; {new Date().getFullYear()} Soporte Técnico. All rights
           reserved.
         </p>
-        <p>Contact us at: [Your Email]</p>
+        <p>Contact us at: [rodrigoivanordonezchavez@gmail.com]</p>
       </footer>
     </div>
   );

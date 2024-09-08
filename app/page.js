@@ -1,14 +1,33 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    console.log("Toggle menu clicked");
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="bg-background text-foreground">
       {/* Header */}
-      <header className="p-4 bg-secondary text-primary">
-        <nav className="container mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-bold">Soporte Técnico</h1>
-          <ul className="flex space-x-4">
+      <header className="bg-secondary text-primary">
+        <nav className="container mx-auto flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/">
+            <Image
+              src="/images/logoSupOrd.png"
+              alt="Soporte Técnico Logo"
+              height={250}
+              width={250}
+              className="object-contain"
+            />
+          </Link>
+          {/* Menú de navegación - Oculto en pantallas pequeñas */}
+          <ul className="hidden sm:flex space-x-4">
             <li>
               <Link href="/" className="hover:underline">
                 Home
@@ -30,8 +49,71 @@ export default function Home() {
               </Link>
             </li>
           </ul>
+          {/* Botón de hamburguesa en pantallas pequeñas */}
+          <div className="sm:hidden">
+            <button
+              onClick={toggleMenu}
+              className="text-primary focus:outline-none"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          {/* Menú desplegable en pantallas pequeñas */}
+          {isOpen && (
+            <ul
+              style={{ display: isOpen ? "block" : "none" }}
+              className="absolute top-16 left-0 w-full bg-secondary flex flex-col items-center space-y-4  z-50" // Añadir z-index para asegurarse de que está en la parte superior
+            >
+              <li>
+                <Link href="/" className="hover:underline" onClick={toggleMenu}>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:underline"
+                  onClick={toggleMenu}
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:underline"
+                  onClick={toggleMenu}
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:underline"
+                  onClick={toggleMenu}
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          )}
         </nav>
       </header>
+
       {/* Hero Section */}
       <section
         className="relative py-48 text-center bg-fixed bg-cover bg-center"
@@ -79,6 +161,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
+
             {/* IT Infrastructure Management Card */}
             <div className="service-card relative p-6 rounded-lg overflow-hidden group">
               <div
@@ -97,6 +180,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
+
             {/* Cybersecurity Solutions Card */}
             <div className="service-card relative p-6 rounded-lg overflow-hidden group">
               <div
@@ -113,7 +197,8 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            {/* web development Card */}
+
+            {/* Web Development Card */}
             <div className="service-card relative p-6 rounded-lg overflow-hidden group">
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-70 transition-opacity duration-300"
@@ -168,7 +253,7 @@ export default function Home() {
           &copy; {new Date().getFullYear()} Soporte Técnico. All rights
           reserved.
         </p>
-        <p>Contact us at: rodrigoivanordonezchavez@gmail.com</p>
+        <p>Contact us at: [rodrigoivanordonezchavez@gmail.com]</p>
       </footer>
     </div>
   );
