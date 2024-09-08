@@ -113,6 +113,22 @@ export default function Home() {
                 </p>
               </div>
             </div>
+            {/* web development Card */}
+            <div className="service-card relative p-6 rounded-lg overflow-hidden group">
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-70 transition-opacity duration-300"
+                style={{ backgroundImage: "url('/images/web.jpg')" }}
+              ></div>
+              <div className="relative z-10 flex flex-col justify-center h-full bg-black bg-opacity-60 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <h4 className="text-2xl font-bold mb-4 text-white">
+                  Web Development
+                </h4>
+                <p className="text-white">
+                  We create customized software solutions to meet your specific
+                  needs, guaranteeing optimal results tailored to your business.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

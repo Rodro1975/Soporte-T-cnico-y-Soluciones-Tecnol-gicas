@@ -3,7 +3,9 @@ import Image from "next/image"; // Importa el componente Image
 
 export default function WhatsAppButton() {
   return (
-    <div className="fixed bottom-4 right-4">
+    <div className="fixed bottom-4 right-4 z-50">
+      {" "}
+      {/* Asegura que el z-index sea alto */}
       <a
         href="https://wa.me/573022283964" // Cambia este enlace a tu número de WhatsApp
         target="_blank"
