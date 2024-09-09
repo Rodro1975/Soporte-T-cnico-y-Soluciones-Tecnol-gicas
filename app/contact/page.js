@@ -1,14 +1,47 @@
-// app/contact/page.js
-import Link from "next/link";
+"use client"; // Indicamos que es un Client Component
 
-// app/contact/page.js
-export const metadata = {
-  title: "Contact",
-  description:
-    "Página de contacto de Soporte Técnico y Soluciones Tecnológicas.",
-};
+import Link from "next/link";
+import { useState } from "react";
+import emailjs from "emailjs-com";
+
+// Inicializa EmailJS con tu Public Key
+emailjs.init("1Z9rEYtD53y4HwJCo"); // Reemplaza con tu Public Key
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        "service_t0p7qz9", // Reemplaza con tu Service ID
+        "template_o0tj7iq", // Reemplaza con tu Template ID
+        formData
+      )
+      .then(
+        (result) => {
+          setSuccess(true);
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          setError(true);
+          console.error("Error sending email:", error);
+        }
+      );
+  };
+
   return (
     <div className="bg-background text-foreground">
       <header className="p-4 bg-black text-white">
@@ -42,7 +75,10 @@ export default function Contact() {
           </p>
 
           {/* Contact Form */}
-          <form className="max-w-lg mx-auto bg-white p-8 rounded shadow-lg">
+          <form
+            className="max-w-lg mx-auto bg-white p-8 rounded shadow-lg"
+            onSubmit={sendEmail}
+          >
             <div className="mb-4">
               <label
                 htmlFor="name"
@@ -54,6 +90,8 @@ export default function Contact() {
                 type="text"
                 id="name"
                 name="name"
+                value={formData.name}
+                onChange={handleChange}
                 required
                 className="mt-1 block w-full p-2 border border-gray-300 rounded"
               />
@@ -70,6 +108,8 @@ export default function Contact() {
                 type="email"
                 id="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
                 required
                 className="mt-1 block w-full p-2 border border-gray-300 rounded"
               />
@@ -86,6 +126,8 @@ export default function Contact() {
                 id="message"
                 name="message"
                 rows="4"
+                value={formData.message}
+                onChange={handleChange}
                 required
                 className="mt-1 block w-full p-2 border border-gray-300 rounded"
               ></textarea>
@@ -98,6 +140,16 @@ export default function Contact() {
               Send Message
             </button>
           </form>
+
+          {/* Success/Error Messages */}
+          {success && (
+            <p className="text-green-500 mt-4">Message sent successfully!</p>
+          )}
+          {error && (
+            <p className="text-red-500 mt-4">
+              Error sending message. Please try again.
+            </p>
+          )}
         </div>
       </section>
 
@@ -106,7 +158,7 @@ export default function Contact() {
           &copy; {new Date().getFullYear()} Soporte Técnico. All rights
           reserved.
         </p>
-        <p>Contact us at: [rodrigoivanordonezchavez@gmail.com]</p>
+        <p>Contact us at: rodrigoivanordonezchavez@gmail.com</p>
       </footer>
     </div>
   );
