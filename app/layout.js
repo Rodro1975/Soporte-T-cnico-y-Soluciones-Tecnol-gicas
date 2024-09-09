@@ -2,6 +2,7 @@
 import WhatsAppButton from "./components/WhatsAppButton";
 import localFont from "next/font/local";
 import "./globals.css";
+import "leaflet/dist/leaflet.css"; // Importa el CSS de Leaflet
 // Configuración de fuentes locales
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
