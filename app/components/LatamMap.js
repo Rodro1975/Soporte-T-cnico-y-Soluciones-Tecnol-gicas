@@ -42,15 +42,14 @@ const countryLocations = [
   },
   {
     name: "México",
-    position: [23.87009076603085, -104.26721507255856],
+    position: [23.8701, -104.2672],
     iconUrl: "/images/mexico.png",
   },
   {
     name: "Canadá",
-    position: [60.000433609499986, -112.25976490889597],
+    position: [60.0004, -112.2598],
     iconUrl: "/images/canada.png",
   },
-  // Añadir más países y posiciones según sea necesario
 ];
 
 // Configurar el icono personalizado
