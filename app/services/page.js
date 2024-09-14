@@ -97,7 +97,7 @@ export default function Services() {
     <div className="bg-background text-foreground min-h-screen">
       <header className="p-4 bg-black text-white">
         <nav className="container mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-light">
+          <h1 className="text-base font-light">
             SUPPORT AND TECHNOLOGICAL SOLUTIONS
           </h1>
           <ul className="flex space-x-4">

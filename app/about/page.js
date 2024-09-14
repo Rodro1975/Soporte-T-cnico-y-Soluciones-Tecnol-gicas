@@ -3,11 +3,22 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import LatamMap from "../components/LatamMap";
+import CountryCard from "../components/CountryCard";
+
 export default function About() {
   // Estado para el contador
   const [count, setCount] = useState(0);
   const maxCount = 20; // Valor máximo para el contador
+
+  //paises para las tarjetas countrycards
+  const countries = [
+    { name: "Colombia", flagUrl: "/images/colombia.png" },
+    { name: "México", flagUrl: "/images/mexico.png" },
+    { name: "Argentina", flagUrl: "/images/argentina.png" },
+    { name: "Brazil", flagUrl: "/images/brazil.png" },
+    { name: "Canada", flagUrl: "/images/canada.png" },
+    // Añade más países aquí
+  ];
 
   // Simular el incremento del contador
   useEffect(() => {
@@ -24,7 +35,7 @@ export default function About() {
     <div className="bg-background text-foreground">
       <header className="p-4 bg-black text-white">
         <nav className="container mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-light">
+          <h1 className="text-base font-light">
             SUPPORT AND TECHNOLOGICAL SOLUTIONS
           </h1>
           <ul className="flex space-x-4">
@@ -96,6 +107,7 @@ export default function About() {
         </div>
       </section>
 
+      {/* Primera sección */}
       <section className="py-16 bg-white">
         {/* Logo de BMS Support */}
         <div className="mt-12 mx-auto text-center">
@@ -117,7 +129,7 @@ export default function About() {
             rel="noopener noreferrer"
           >
             <Image
-              src="/images/logoBMS.png" // Reemplaza con la ruta correcta del logo
+              src="/images/logoBMS.png"
               alt="BMS Support Logo"
               width={192} // Reemplaza con el ancho deseado
               height={64} // Reemplaza con la altura deseada
@@ -126,9 +138,23 @@ export default function About() {
           </Link>
         </div>
       </section>
-      <section className="py-16 bg-gray flex justify-center items-center">
-        {/* Mapa interactivo */}
-        <LatamMap />
+
+      {/* Segunda sección con título y tarjetas de países */}
+      <section className="py-16 bg-gray-100">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8">Our Presence</h2>
+
+          {/* Tarjetas de países */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {countries.map((country) => (
+              <CountryCard
+                key={country.name}
+                country={country.name}
+                flagUrl={country.flagUrl}
+              />
+            ))}
+          </div>
+        </div>
       </section>
 
       <section id="fortalezas" className="py-16 bg-white">

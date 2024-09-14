@@ -2,8 +2,8 @@
 import WhatsAppButton from "./components/WhatsAppButton";
 import localFont from "next/font/local";
 import "./globals.css";
-import "leaflet/dist/leaflet.css"; // Importa el CSS de Leaflet
-// Configuración de fuentes locales
+import "leaflet/dist/leaflet.css";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -15,13 +15,11 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-// Nueva API de Metadata
 export const metadata = {
-  title: "Home/Services",
-  description:
-    "Servicios profesionales de soporte técnico y soluciones tecnológicas.",
+  title: "Home", // Este título es para la página principal
+  description: "Soporte técnico y soluciones tecnológicas personalizadas.",
   icons: {
-    icon: "/favicon.ico", // Ruta favicon
+    icon: "/favicon.ico",
   },
   openGraph: {
     title: "Soporte Técnico y Soluciones Tecnológicas",
