@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer"; // Importamos el Footer
 import WhatsAppButton from "./components/WhatsAppButton";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -50,6 +51,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <WhatsAppButton />
+        <Footer /> {/* Agregamos el Footer aquí */}
       </body>
     </html>
   );

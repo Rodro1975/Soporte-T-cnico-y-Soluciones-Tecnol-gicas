@@ -1,13 +1,6 @@
-"use client"; // Esto indica que el componente es un Client Component
+"use client";
 import { useState } from "react";
 import Image from "next/image";
-
-// ELIMINA ESTO:
-// export const metadata = {
-//   title: "Services",
-//   description:
-//     "Información sobre nuestros servicios en Soporte Técnico y Soluciones Tecnológicas.",
-// };
 
 export default function Services() {
   const [selectedService, setSelectedService] = useState(null);

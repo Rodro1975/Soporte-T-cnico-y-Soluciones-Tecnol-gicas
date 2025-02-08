@@ -192,20 +192,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
-      <footer className="py-4 bg-black text-white text-center">
-        <p>
-          &copy; {new Date().getFullYear()} Soporte Técnico. All rights
-          reserved.
-        </p>
-        <p>Contact us at: rodrigoivanordonezchavez@gmail.com</p>
-        <a
-          href="https://www.flaticon.es/stickers-gratis/personas"
-          title="personas stickers"
-        >
-          People stickers created by Stickers - Flaticon{" "}
-        </a>
-      </footer>
     </div>
   );
 }
