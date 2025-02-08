@@ -1,7 +1,13 @@
 "use client"; // Esto indica que el componente es un Client Component
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+
+// ELIMINA ESTO:
+// export const metadata = {
+//   title: "Services",
+//   description:
+//     "Información sobre nuestros servicios en Soporte Técnico y Soluciones Tecnológicas.",
+// };
 
 export default function Services() {
   const [selectedService, setSelectedService] = useState(null);
@@ -95,28 +101,6 @@ export default function Services() {
 
   return (
     <div className="bg-background text-foreground min-h-screen">
-      <header className="p-4 bg-black text-white">
-        <nav className="container mx-auto flex justify-between items-center">
-          <h1 className="text-base font-light">
-            SUPPORT AND TECHNOLOGICAL SOLUTIONS
-          </h1>
-          <ul className="flex space-x-4">
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/services">Services</Link>
-            </li>
-            <li>
-              <Link href="/about">About Us</Link>
-            </li>
-            <li>
-              <Link href="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
       <section className="py-16 bg-gradient-to-r from-yellow-300 via-yellow-200 to-yellow-100 text-center">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">Explore Our Services</h2>
@@ -168,136 +152,6 @@ export default function Services() {
           </section>
         </div>
       </main>
-
-      {/* Modal */}
-      {selectedService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg shadow-lg w-11/12 max-w-2xl">
-            <div className="bg-gradient-to-r from-yellow-300 via-yellow-200 to-yellow-100 p-6">
-              <h3 className="text-3xl font-bold mb-4">
-                {selectedService.title}
-              </h3>
-              <div
-                className="text-lg mb-6"
-                dangerouslySetInnerHTML={{ __html: selectedService.details }}
-              />
-              <button
-                onClick={closeModal}
-                className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <section className="bg-background py-12">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">Our Clients</h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Tarjeta 1 */}
-            <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
-              <p className="text-gray-700 mb-4 text-center">
-                On-site technical support was provided to ensure the correct
-                functioning of the hardware and software.
-              </p>
-              <div className="w-full flex justify-center mb-4">
-                <Image
-                  src="/images/avaso.png"
-                  alt="Client 1"
-                  width={160}
-                  height={100}
-                  className="w-auto h-auto object-contain" // Evita que se corten
-                />
-              </div>
-              <h3 className="text-lg font-semibold">Avaso</h3>
-            </div>
-
-            {/* Tarjeta 2 */}
-            <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
-              <p className="text-gray-700 mb-4 text-center">
-                Smart Hands technical support was provided for the installation
-                and configuration of the network.
-              </p>
-              <div className="w-full flex justify-center mb-4">
-                <Image
-                  src="/images/layers.jpg"
-                  alt="Client 2"
-                  width={160}
-                  height={100}
-                  className="w-auto h-auto object-contain"
-                />
-              </div>
-              <h3 className="text-lg font-semibold">Layers Logic</h3>
-            </div>
-
-            {/* Tarjeta 3 */}
-            <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
-              <p className="text-gray-700 mb-4 text-center">
-                Coordination of technological projects to optimize the operation
-                and improve system efficiency.
-              </p>
-              <div className="w-full flex justify-center mb-4">
-                <Image
-                  src="/images/iff.png"
-                  alt="Client 3"
-                  width={160}
-                  height={100}
-                  className="w-auto h-auto object-contain"
-                />
-              </div>
-              <h3 className="text-lg font-semibold">Iff</h3>
-            </div>
-
-            {/* Tarjeta 4 */}
-            <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
-              <p className="text-gray-700 mb-4 text-center">
-                Asset Management services were provided to optimize the
-                management of physical and intangible assets.
-              </p>
-              <div className="w-full flex justify-center mb-4">
-                <Image
-                  src="/images/ict.png"
-                  alt="Client 4"
-                  width={160}
-                  height={100}
-                  className="w-auto h-auto object-contain"
-                />
-              </div>
-              <h3 className="text-lg font-semibold">Ict</h3>
-            </div>
-
-            {/* Tarjeta 5 */}
-            <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
-              <p className="text-gray-700 mb-4 text-center">
-                Secure storage and destruction services were provided for
-                obsolete or damaged computer equipment.
-              </p>
-              <div className="w-full flex justify-center mb-4">
-                <Image
-                  src="/images/tech.jpg"
-                  alt="Client 5"
-                  width={160}
-                  height={100}
-                  className="w-auto h-auto object-contain"
-                />
-              </div>
-              <h3 className="text-lg font-semibold">Tech Service</h3>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-4 bg-black text-white text-center">
-        <p>
-          &copy; {new Date().getFullYear()} Soporte Técnico. All rights
-          reserved.
-        </p>
-        <p>Contact us at: rodrigoivanordonezchavez@gmail.com</p>
-      </footer>
     </div>
   );
 }

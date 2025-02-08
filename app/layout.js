@@ -1,4 +1,4 @@
-// app/layout.js
+import Navbar from "./components/Navbar";
 import WhatsAppButton from "./components/WhatsAppButton";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -15,30 +15,31 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata = {
-  title: "Home", // Este título es para la página principal
-  description: "Soporte técnico y soluciones tecnológicas personalizadas.",
-  icons: {
-    icon: "/favicon.ico",
-  },
-  openGraph: {
-    title: "Soporte Técnico y Soluciones Tecnológicas",
-    description:
-      "Ofrecemos soporte técnico, mantenimiento y soluciones tecnológicas personalizadas.",
-    url: "https://www.tu-sitio.com",
-    siteName: "Soporte Técnico",
-    images: [
-      {
-        url: "https://www.tu-sitio.com/imagen-og.jpg",
-        width: 800,
-        height: 600,
-        alt: "Soporte Técnico y Soluciones Tecnológicas",
-      },
-    ],
-    locale: "es_ES",
-    type: "website",
-  },
-};
+export function generateMetadata({ params }) {
+  const metadataMap = {
+    "": {
+      title: "Home",
+      description: "Soporte técnico y soluciones tecnológicas personalizadas.",
+    },
+    services: {
+      title: "Services",
+      description:
+        "Información sobre nuestros servicios en Soporte Técnico y Soluciones Tecnológicas.",
+    },
+    about: {
+      title: "About Us",
+      description:
+        "Información sobre nosotros en Soporte Técnico y Soluciones Tecnológicas.",
+    },
+    contact: {
+      title: "Contact Us",
+      description:
+        "Contacta con nosotros en Soporte Técnico y Soluciones Tecnológicas.",
+    },
+  };
+
+  return metadataMap[params?.slug] || metadataMap[""];
+}
 
 export default function RootLayout({ children }) {
   return (
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar />
         {children}
         <WhatsAppButton />
       </body>

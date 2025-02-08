@@ -68,28 +68,6 @@ export default function Contact() {
 
   return (
     <div className="bg-background text-foreground">
-      <header className="p-4 bg-black text-white">
-        <nav className="container mx-auto flex justify-between items-center">
-          <h1 className="text-base font-light">
-            SUPPORT AND TECHNOLOGICAL SOLUTIONS
-          </h1>
-          <ul className="flex space-x-4">
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/services">Services</Link>
-            </li>
-            <li>
-              <Link href="/about">About Us</Link>
-            </li>
-            <li>
-              <Link href="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
       <section className="py-16">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
