@@ -34,7 +34,7 @@ export default function Navbar() {
           : "bg-secondary"
       }`}
     >
-      <nav className="container mx-auto flex items-center justify-between py-4 px-6">
+      <nav className="container mx-auto flex items-center justify-between px-6">
         {/* Logo */}
         <Link href="/">
           <Image

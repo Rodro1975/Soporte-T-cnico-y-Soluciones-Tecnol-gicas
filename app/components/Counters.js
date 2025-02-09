@@ -12,6 +12,8 @@ const keywords = [
   "Tailwind CSS",
   "MySQL",
   "Linux",
+  "Hyper V",
+  "HTML",
 ];
 
 export default function Counters() {

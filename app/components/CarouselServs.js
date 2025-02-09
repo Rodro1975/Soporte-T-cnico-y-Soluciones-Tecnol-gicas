@@ -14,13 +14,13 @@ const services = [
     title: "CUSTOM SOFTWARE DEVELOPMENT",
     description:
       "Tailored software solutions designed to meet your unique business requirements.",
-    image: "/images/service2.jpg",
+    image: "/images/fotis.jpg",
   },
   {
     title: "PREVENTIVE AND CORRECTIVE MAINTENANCE TO SERVERS",
     description:
       "Ensuring optimal server performance and reliability through regular maintenance.",
-    image: "/images/service3.jpg",
+    image: "/images/it.jpg",
   },
   {
     title: "VIRTUALIZATION IN HYPER-V",

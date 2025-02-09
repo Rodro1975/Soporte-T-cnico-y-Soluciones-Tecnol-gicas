@@ -1,6 +1,7 @@
 "use client";
 
 import CarouselServices from "./components/CarouselServs";
+import Clients from "./components/Clients";
 import Counters from "./components/Counters";
 
 export default function Home() {
@@ -52,6 +53,8 @@ export default function Home() {
           </a>
         </div>
       </section>
+      {/* Clients Section */}
+      <Clients />
     </div>
   );
 }
