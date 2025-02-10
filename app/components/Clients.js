@@ -53,6 +53,19 @@ const clients = [
       "First-Level Technical Support: Providing efficient first-level technical support, managing and resolving incidents effectively.",
     image: "/images/logoImbursa.jpg",
   },
+  {
+    client: "BMS Support Technology LLC",
+    title: "Freelance Software Developer",
+    description:
+      "Designed and developed their website and a custom CRM system to streamline business operations and enhance customer management.",
+    image: "/images/BMS support tech black.png",
+    details: [
+      "Full website design and development",
+      "Custom CRM development for lead and client management",
+      "Database design and implementation",
+      "Ongoing website maintenance and support",
+    ],
+  },
 ];
 
 export default function Clients() {

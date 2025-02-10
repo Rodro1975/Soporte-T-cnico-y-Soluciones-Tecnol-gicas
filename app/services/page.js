@@ -1,150 +1,181 @@
 "use client";
-import { useState } from "react";
+
 import Image from "next/image";
 
-export default function Services() {
-  const [selectedService, setSelectedService] = useState(null);
+const services = [
+  {
+    title: "Custom Software Development",
+    description:
+      "Tailored software solutions designed to meet your unique business needs and drive innovation.",
+    image: "/images/software.jpg",
+    details: [
+      "Bespoke software application development",
+      "Web application development",
+      "Mobile application development (iOS & Android)",
+      "Cloud-based software solutions",
+      "Software integration and APIs",
+      "Ongoing maintenance and support",
+    ],
+  },
+  {
+    title: "Advice and Consulting",
+    description:
+      "Strategic IT consulting to align technology with your business goals and optimize IT infrastructure.",
+    image: "/images/advice.jpg",
+    details: [
+      "IT strategy development",
+      "Technology roadmaps",
+      "Business process optimization",
+      "Risk assessment and mitigation",
+      "Compliance consulting",
+    ],
+  },
+  {
+    title: "Preventive & Corrective Server Maintenance",
+    description:
+      "Ensuring optimal server performance and reliability through proactive maintenance and rapid issue resolution.",
+    image: "/images/servers.jpg",
+    details: [
+      "Regular software updates and patching",
+      "Hardware diagnostics and monitoring",
+      "Data backups and restoration testing",
+      "Security audits and vulnerability assessments",
+      "Performance optimization",
+      "Corrective maintenance for unexpected failures",
+    ],
+  },
+  {
+    title: "Virtualization in Hyper-V",
+    description:
+      "Efficient virtualization solutions using Hyper-V technology for enhanced resource utilization and business continuity.",
+    image: "/images/virtualization.jpg",
+    details: [
+      "Hyper-V deployment and configuration",
+      "Virtual machine management",
+      "Resource optimization",
+      "Disaster recovery planning",
+      "Server consolidation",
+    ],
+  },
+  {
+    title: "IT Infrastructure Management",
+    description:
+      "Comprehensive management and optimization of your IT infrastructure for seamless operations and improved efficiency.",
+    image: "/images/managment.jpg",
+    details: [
+      "Network monitoring and management",
+      "Server administration",
+      "Data storage management",
+      "Cloud infrastructure management",
+      "Security management",
+      "Help desk support",
+    ],
+  },
+  {
+    title: "Building Management System (BMS)",
+    description:
+      "Integration, maintenance, and optimization of building management systems for efficient facility operations.",
+    image: "/images/bms.jpg",
+    details: [
+      "BMS installation and configuration",
+      "System monitoring and control",
+      "Energy management",
+      "Preventive maintenance",
+      "Integration with other building systems",
+    ],
+  },
+  {
+    title: "Equipment Destruction Services",
+    description:
+      "Secure and environmentally responsible destruction of IT equipment, ensuring data security and compliance.",
+    image: "/images/destruction.jpg",
+    details: [
+      "Data sanitization and wiping",
+      "Physical destruction of hard drives",
+      "Certificate of destruction",
+      "Environmentally compliant disposal",
+    ],
+  },
+  {
+    title: "IT Equipment Sales and Purchasing",
+    description:
+      "Sales of reliable new and used IT equipment, and purchasing of surplus equipment.",
+    image: "/images/sales.jpg",
+    details: [
+      "Sales of desktops, laptops, and servers",
+      "Purchasing of used IT equipment",
+      "Equipment refurbishment and resale",
+      "Asset recovery services",
+    ],
+  },
+  {
+    title: "Cybersecurity Solutions",
+    description:
+      "Protecting your business from evolving cyber threats with comprehensive security solutions and proactive monitoring.",
+    image: "/images/service3.jpg", // Replace with a more relevant image if available
+    details: [
+      "Vulnerability assessments and penetration testing",
+      "Managed firewall and intrusion detection systems",
+      "Endpoint protection and antivirus solutions",
+      "Security awareness training for employees",
+      "Incident response planning and management",
+      "Data encryption and loss prevention (DLP)",
+      "Compliance assessments (e.g., GDPR, HIPAA)",
+    ],
+  },
+];
 
-  const services = [
-    {
-      title: "Technical Support",
-      description:
-        "Comprehensive support for your hardware and software issues, ensuring minimal downtime.",
-      details: `
-        <ul>
-          <li>Hardware diagnostics and repair</li>
-          <li>Software installation and troubleshooting</li>
-          <li>Network setup and management</li>
-          <li>System performance optimization</li>
-          <li>Virus and malware removal</li>
-          <li>Backup and disaster recovery solutions</li>
-          <li>Remote support</li>
-          <li>Operating system updates and patch management</li>
-          <li>Device configuration</li>
-          <li>Security audits and improvements</li>
-          <li>User training and support</li>
-          <li>Email and communication system troubleshooting</li>
-        </ul>
-      `,
-      image: "/images/service1.jpg",
-    },
-    {
-      title: "IT Infrastructure Management",
-      description:
-        "Expert management and optimization of your IT infrastructure to ensure smooth operations.",
-      details: `
-        <ul>
-          <li>Server setup and maintenance</li>
-          <li>Cloud services management</li>
-          <li>Network optimization</li>
-          <li>Database management</li>
-          <li>System monitoring and alerting</li>
-          <li>Data storage solutions</li>
-          <li>Infrastructure scaling</li>
-          <li>Disaster recovery planning</li>
-          <li>IT asset management</li>
-          <li>Performance tuning</li>
-        </ul>
-      `,
-      image: "/images/service2.jpg",
-    },
-    {
-      title: "Cybersecurity Solutions",
-      description:
-        "Protect your business from cyber threats with our robust security solutions.",
-      details: `
-        <ul>
-          <li>Firewall installation and management</li>
-          <li>Threat detection and response</li>
-          <li>Vulnerability assessments</li>
-          <li>Intrusion prevention systems</li>
-          <li>Security audits and compliance</li>
-          <li>Encryption and data protection</li>
-          <li>Incident response planning</li>
-          <li>Security awareness training</li>
-          <li>Penetration testing</li>
-          <li>Endpoint protection</li>
-        </ul>
-      `,
-      image: "/images/service3.jpg",
-    },
-    {
-      title: "Web Development",
-      description:
-        "We create customized software solutions to meet your specific needs, guaranteeing optimal results tailored to your business.",
-      details: `
-        <ul>
-          <li>Custom website design and development</li>
-          <li>Responsive and mobile-friendly design</li>
-          <li>E-commerce solutions</li>
-          <li>Content management systems</li>
-          <li>API integrations</li>
-          <li>Performance optimization</li>
-          <li>SEO best practices</li>
-          <li>Website maintenance and support</li>
-          <li>User experience (UX) design</li>
-          <li>Web application development</li>
-        </ul>
-      `,
-      image: "/images/service4.jpg",
-    },
-  ];
-
-  const closeModal = () => setSelectedService(null);
-
+export default function ServicesPage() {
   return (
-    <div className="bg-background text-foreground min-h-screen">
-      <section className="py-16 bg-gradient-to-r from-yellow-300 via-yellow-200 to-yellow-100 text-center">
-        <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">Explore Our Services</h2>
-          <p className="text-lg mb-8">
-            We offer a variety of services to meet your needs. Explore the
-            options below to find out more.
+    <div className="mt-20 py-16 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 text-center">
+      {/* Contact Section */}
+      <section className="py-16 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 text-center">
+        <div className="container mx-auto">
+          <h3 className="text-3xl font-bold mb-8">Get in Touch</h3>
+          <p className="text-lg mb-6">
+            Need assistance or have questions? Reach out to us and we will be
+            happy to help!
           </p>
+          <a
+            href="/contact"
+            className="bg-black text-white py-2 px-6 rounded inline-block font-bold hover:bg-gray-800 transition duration-300"
+          >
+            Contact Us
+          </a>
         </div>
       </section>
-
-      {/* Services Section */}
-      <main className="bg-white py-12 relative">
-        <div className="container mx-auto p-6 relative z-10">
-          <section className="py-16">
-            <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className="relative bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-[800px] mx-auto transition-transform transform hover:scale-105"
-                >
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    width={800}
-                    height={500}
-                    className="w-full h-80 object-cover"
-                  />
-                  <div className="absolute inset-0 flex justify-center items-center">
-                    <div className="absolute inset-0 bg-white opacity-30"></div>
-                    <div className="relative p-6 z-10 text-center">
-                      <h3 className="text-3xl font-semibold text-white mb-2">
-                        {service.title}
-                      </h3>
-                      <p className="text-white mb-4">{service.description}</p>
-                      <button
-                        onClick={() => setSelectedService(service)}
-                        className="text-white font-semibold underline"
-                      >
-                        Learn More
-                      </button>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-primary to-transparent"></div>
-                  </div>
-                </div>
-              ))}
+      <div className="container mx-auto px-6">
+        <h1 className="text-5xl font-bold text-gray-900 mb-12 drop-shadow-lg">
+          Our Services
+        </h1>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="rounded-2xl overflow-hidden shadow-2xl hover:shadow-yellow-200 transition-transform transform hover:scale-105 bg-white"
+            >
+              <div className="relative h-64">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover opacity-80"
+                />
+                <div className="absolute inset-0 bg-black opacity-40"></div>
+              </div>
+              <div className="p-6 text-yellow-500">
+                <h2 className="text-2xl font-semibold mb-3">{service.title}</h2>
+                <p className="text-gray-700 mb-4">{service.description}</p>
+                <ul className="text-gray-600 list-disc list-inside space-y-1">
+                  {service.details.map((detail, i) => (
+                    <li key={i}>{detail}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </section>
+          ))}
         </div>
-      </main>
+      </div>
     </div>
   );
 }
