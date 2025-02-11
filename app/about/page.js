@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Recognition from "../components/Recognition";
+import Bio from "../components/Bio";
 
 export default function About() {
   return (
@@ -24,6 +26,11 @@ export default function About() {
           </h2>
         </div>
       </header>
+
+      {/* Bio Section */}
+      <section>
+        <Bio />
+      </section>
 
       {/* About Us Section */}
       <section className="py-16">
@@ -86,8 +93,13 @@ export default function About() {
         </div>
       </section>
 
+      <section>
+        {/* Recognition Section */}
+        <Recognition />
+      </section>
+
       {/* Geographic Presence Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Our Presence</h2>
           <div className="grid md:grid-cols-2 gap-12">
@@ -113,8 +125,8 @@ export default function About() {
                   <Image
                     src={location.image}
                     alt={`${location.country} - IT Solutions`}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    style={{ objectFit: "cover" }}
                     className="rounded-lg group-hover:opacity-80 transition-opacity duration-300"
                   />
                 </div>

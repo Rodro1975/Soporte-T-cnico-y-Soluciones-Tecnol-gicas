@@ -67,7 +67,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="bg-background text-foreground">
+    <div className="mt-20 py-16 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 text-center">
       <section className="py-16">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
@@ -137,7 +137,7 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="bg-primary text-white py-2 px-4 rounded"
+              className="bg-black text-white py-2 px-4 rounded hover:bg-primary"
             >
               Send Message
             </button>
@@ -152,44 +152,6 @@ export default function Contact() {
               Error sending message. Please try again.
             </p>
           )}
-        </div>
-      </section>
-
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-8">Contact Us on WhatsApp</h2>
-          <p className="text-lg mb-6">
-            Click on any of the contacts below to start a chat with them on
-            WhatsApp.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6">
-            {contacts.map((contact, index) => (
-              <div
-                key={index}
-                className="w-full sm:w-80 bg-white p-6 rounded-lg shadow-md flex items-center space-x-4"
-              >
-                <Image
-                  src={contact.icon} // Ruta del icono PNG
-                  alt="Contact Icon"
-                  width={48} // Ancho del icono
-                  height={48} // Alto del icono
-                  className="w-12 h-12" // Ajusta el tamaño del icono
-                />
-                <div>
-                  <h3 className="text-xl font-semibold">{contact.name}</h3>
-                  <p className="text-gray-600">{contact.zone}</p>
-                  <a
-                    href={`https://wa.me/${contact.phone}?text=Hello%20${contact.name},%20I%20would%20like%20to%20ask%20about...`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary mt-2 inline-block"
-                  >
-                    Send WhatsApp Message
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
     </div>
