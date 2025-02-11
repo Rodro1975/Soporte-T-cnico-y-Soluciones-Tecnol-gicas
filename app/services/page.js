@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import WebPortfolio from "../components/WebPortfolio";
 
 const services = [
   {
@@ -176,6 +177,7 @@ export default function ServicesPage() {
           ))}
         </div>
       </div>
+      <WebPortfolio />
     </div>
   );
 }

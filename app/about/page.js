@@ -1,129 +1,129 @@
-"use client"; // Directiva para indicar que es un componente del cliente
+"use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
-import CountryCard from "../components/CountryCard";
+import { motion } from "framer-motion";
 
 export default function About() {
-  // Estado para el contador
-  const [count, setCount] = useState(0);
-  const maxCount = 20; // Valor máximo para el contador
-
-  //paises para las tarjetas countrycards
-  const countries = [
-    { name: "Colombia", flagUrl: "/images/colombia.png" },
-    { name: "México", flagUrl: "/images/mexico.png" },
-    { name: "Argentina", flagUrl: "/images/argentina.png" },
-    { name: "Brazil", flagUrl: "/images/brazil.png" },
-    { name: "Canada", flagUrl: "/images/canada.png" },
-    // Añade más países aquí
-  ];
-
-  // Simular el incremento del contador
-  useEffect(() => {
-    if (count < maxCount) {
-      const interval = setInterval(() => {
-        setCount((prevCount) => prevCount + 1); // Incrementa el contador
-      }, 100); // Velocidad de incremento (puedes ajustarlo)
-
-      return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
-    }
-  }, [count]); // Dependencia en count, para detenerlo al llegar a maxCount
-
   return (
-    <div className="bg-background text-foreground">
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">About Us</h2>
-          <p className="text-lg">
-            We are a dedicated team of IT professionals committed to providing
-            exceptional support and solutions to ensure your technology works
-            seamlessly. Our mission is to deliver top-notch services that meet
-            the needs of our clients with precision and care.
-          </p>
-          <p className="text-lg mt-4">
-            With years of experience in technical support and IT management, we
-            offer a range of services designed to address the unique challenges
-            of modern technology. Our goal is to help you maintain smooth and
-            efficient operations, providing peace of mind through reliable
-            support.
-          </p>
-
-          {/* Contador */}
-          <div className="mt-8">
-            <h3 className="text-2xl font-bold">Years of Experience</h3>
-            <p className="text-6xl font-semibold text-primary">{count}+</p>
-          </div>
+    <div className="bg-warm-light text-gray-800">
+      {/* Header Section */}
+      <header className="relative py-16 text-center mt-20">
+        {" "}
+        {/* Added mt-20 to push header down */}
+        <Image
+          src="/images/warm.jpg"
+          alt="Warm Background"
+          fill
+          style={{ objectFit: "cover", zIndex: -1 }}
+          className="absolute inset-0"
+        />
+        <div className="container mx-auto px-4 relative">
+          <div className="relative w-48 h-24 mx-auto mb-8"> </div>
+          <h2 className="text-white text-4xl font-bold uppercase drop-shadow-md">
+            Why Choose Us
+          </h2>
         </div>
-      </section>
+      </header>
 
-      <section
-        id="values-mission"
-        className="py-16 bg-gradient-to-b from-yellow-200 via-gray-200 to-gray-100 text-center"
-      >
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">Values and Mission</h2>
-          <div className="mb-12">
-            <h3 className="text-2xl font-semibold mb-4">Values</h3>
-            <ul className="list-disc list-inside text-left mx-auto max-w-lg">
-              <li className="text-lg mb-2">Innovation</li>
-              <li className="text-lg mb-2">Integrity</li>
-              <li className="text-lg mb-2">Excellence</li>
-              <li className="text-lg mb-2">Commitment</li>
-            </ul>
-          </div>
+      {/* About Us Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <h3 className="text-2xl font-semibold mb-4">Mission</h3>
-            <p className="text-lg leading-relaxed">
-              Our mission is to provide innovative and effective technological
-              solutions that optimize processes and enhance operational
-              efficiency. We are committed to upholding the highest standards of
-              integrity and excellence in all our endeavors.
+            <h2 className="text-4xl font-bold mb-6">
+              About Rodro Support and Technological Solutions
+            </h2>
+            <p className="text-lg mb-4">
+              We are dedicated to providing innovative and reliable IT solutions
+              that empower businesses to thrive. Our expertise ensures tailored
+              services that address today’s technology challenges.
+            </p>
+            <p className="text-lg">
+              With a client-centric approach, we become your trusted partner in
+              navigating IT complexities.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Primera sección */}
-      <section className="py-16 bg-white">
-        <div className="mt-12 mx-auto text-center">
-          <h3 className="text-2xl font-bold mb-4">
-            BMS Support technology LLC Partnership
-          </h3>
-          <p className="text-lg mb-4">
-            We are proud to be partners with{" "}
-            <strong>BMS Support Technology</strong>, a company that legally
-            supports us in our operations. While we are an independent team, BMS
-            Support helps us ensure we meet all necessary legal and professional
-            standards.
-          </p>
-          <a
-            href="https://www.linkedin.com/company/bms-support-technology-llc/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <div className="flex justify-center">
             <Image
-              src="/images/logoBMS.png"
-              alt="BMS Support Logo"
-              width={192}
-              height={64}
-              className="mx-auto"
+              src="/images/web.jpg"
+              alt="Team Collaboration"
+              width={600}
+              height={400}
+              className="rounded-lg shadow-lg"
             />
-          </a>
+          </div>
         </div>
       </section>
 
-      {/* Segunda sección con título y tarjetas de países */}
+      {/* Mission, Vision, and Values Section */}
+      <section className="mt-20 py-16 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 text-center">
+        <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
+          {[
+            {
+              title: "Our Mission",
+              text: "To deliver exceptional IT support and solutions that enhance productivity and efficiency.",
+            },
+            {
+              title: "Our Vision",
+              text: "To be a leader in IT solutions, recognized for excellence, innovation, and customer satisfaction.",
+            },
+            {
+              title: "Core Values",
+              text: "Innovation, Integrity, Excellence, Customer Focus, Collaboration.",
+            },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              className="p-6 bg-white shadow-lg rounded-lg"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <h3 className="text-2xl font-semibold mb-4 text-warm-dark">
+                {item.title}
+              </h3>
+              <p className="text-gray-700">{item.text}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Geographic Presence Section */}
       <section className="py-16 bg-gray-100">
-        <div className="container mx-auto text-center">
+        <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Our Presence</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {countries.map((country) => (
-              <CountryCard
-                key={country.name}
-                country={country.name}
-                flagUrl={country.flagUrl}
-              />
+          <div className="grid md:grid-cols-2 gap-12">
+            {[
+              {
+                country: "Mexico",
+                image: "/images/mexico.jpg",
+                text: "Strong presence in Mexico, serving various industries with top-tier IT solutions.",
+              },
+              {
+                country: "Colombia",
+                image: "/images/colombia.jpg",
+                text: "Committed to delivering exceptional technological solutions in Colombia.",
+              },
+            ].map((location, index) => (
+              <motion.div
+                key={index}
+                className="relative group overflow-hidden rounded-lg shadow-lg w-full max-w-sm mx-auto"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="relative w-full h-64">
+                  <Image
+                    src={location.image}
+                    alt={`${location.country} - IT Solutions`}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg group-hover:opacity-80 transition-opacity duration-300"
+                  />
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4">
+                  <p className="text-white text-lg font-bold text-center">
+                    {location.text}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
