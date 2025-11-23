@@ -8,56 +8,103 @@ import Clients from "./components/Clients";
 export default function Home() {
   return (
     <div className="bg-background text-foreground">
-      {/* Hero Section */}
+      {/* HERO - pantalla completa */}
       <section
-        className="relative py-48 text-center bg-fixed bg-cover bg-center mt-8"
+        className="relative min-h-screen flex items-center justify-center bg-fixed bg-cover bg-center"
         style={{ backgroundImage: "url('/images/hero.jpg')" }}
       >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 container mx-auto">
-          <h2 className="text-5xl font-bold mb-4 text-white drop-shadow-lg">
-            Soporte técnico y soluciones tecnológicas personalizadas
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+
+        {/* Contenido */}
+        <div className="relative z-10 max-w-3xl px-4 text-center space-y-6">
+          <p className="text-sm font-semibold tracking-[0.25em] uppercase text-yellow-400">
+            Rodro · Soporte Técnico & Soluciones Tecnológicas
+          </p>
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-balance drop-shadow-lg">
+            Elevamos tu infraestructura y desarrollo IT
+            <span className="block text-yellow-400">
+              Deja atrás los parches urgentes y crece sin interrupciones.
+            </span>
+          </h1>
+
+          <p className="text-base sm:text-lg md:text-xl text-gray-200/90 text-balance">
+            Más de 15 años ayudando a empresas a integrar sistemas, redes y
+            herramientas en la nube. Haz que tu operación sea robusta, segura y
+            lista para escalar.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-yellow-400 text-black font-semibold px-8 py-3 text-sm sm:text-base hover:bg-yellow-300 transition duration-200"
+            >
+              Agenda una llamada
+            </a>
+            <a
+              href="#projects"
+              className="inline-flex items-center justify-center rounded-full border border-gray-400/60 text-gray-100 px-8 py-3 text-sm sm:text-base hover:bg-white/10 transition duration-200"
+            >
+              Ver proyectos destacados
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="min-h-screen flex items-center bg-background">
+        <div className="w-full max-w-5xl mx-auto px-4 py-16 md:py-24">
+          <CarouselServices />
+        </div>
+      </section>
+
+      {/* COUNTERS / ABOUT */}
+      <section className="min-h-screen flex items-center bg-background">
+        <div className="w-full max-w-5xl mx-auto px-4 py-16 md:py-24">
+          <Counters />
+        </div>
+      </section>
+
+      {/* CLIENTS */}
+      <section
+        id="projects"
+        className="min-h-screen flex items-center bg-background"
+      >
+        <div className="w-full max-w-5xl mx-auto px-4 py-16 md:py-24">
+          <Clients />
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-100">
+        {/* overlay sutil */}
+        <div className="absolute inset-0 bg-black/5" />
+
+        <div className="relative z-10 max-w-3xl text-center px-6 space-y-8">
+          {/* título */}
+          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight text-balance">
+            ¿Listo para optimizar tu infraestructura IT y alcanzar el siguiente
+            nivel?
           </h2>
-          <p className="text-lg mb-6 text-white drop-shadow-lg">
-            Mantenimiento, implementación e integración de soluciones IT para
-            empresas, oficinas y proyectos especiales.
+
+          <p className="text-lg md:text-xl text-gray-800/90 max-w-xl mx-auto text-balance">
+            Analicemos juntos tu operación, tus objetivos y el estado actual de
+            tu infraestructura. Te presentaré una hoja de ruta realista,
+            eficiente y libre de tecnicismos innecesarios.
           </p>
-          <a
-            href="/contact"
-            className="bg-yellow-500 text-black py-4 px-6 rounded inline-block font-bold hover:bg-yellow-400 transition duration-300"
-          >
-            Contáctame
-          </a>
+
+          {/* CTA */}
+          <div className="flex justify-center">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-black text-white font-semibold px-10 py-4 text-base md:text-lg hover:bg-gray-800 transition duration-200"
+            >
+              Agendar llamada gratuita
+            </a>
+          </div>
         </div>
       </section>
-
-      {/* Services Section */}
-      <CarouselServices />
-
-      {/* About / Counters */}
-      <Counters />
-
-      {/* Contact Section */}
-      <section className="py-16 bg-gradient-to-r from-yellow-300 via-yellow-200 to-yellow-100 text-center">
-        <div className="container mx-auto">
-          <h3 className="text-3xl font-bold mb-8">
-            ¿Listo para mejorar tu infraestructura tecnológica?
-          </h3>
-          <p className="text-lg mb-6">
-            Puedo ayudarte a planear, implementar y mantener soluciones IT
-            alineadas a tus necesidades reales, sin humo ni choro.
-          </p>
-          <a
-            href="/contact"
-            className="bg-black text-white py-2 px-6 rounded inline-block font-bold hover:bg-gray-800 transition duration-300"
-          >
-            Escríbeme
-          </a>
-        </div>
-      </section>
-
-      {/* Clients Section */}
-      <Clients />
     </div>
   );
 }

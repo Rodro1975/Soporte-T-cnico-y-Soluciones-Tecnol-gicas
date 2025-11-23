@@ -1,19 +1,19 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const keywords = [
   "Next.js",
   "Node.js",
   "Supabase",
-  "Windows",
+  "Windows Server",
   "PostgreSQL",
   "VS Code",
   "Tailwind CSS",
   "MySQL",
   "Linux",
-  "Hyper V",
-  "HTML",
+  "Hyper-V",
+  "HTML & CSS",
 ];
 
 export default function Counters() {
@@ -21,21 +21,54 @@ export default function Counters() {
   const [currentWord, setCurrentWord] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const containerRef = useRef(null);
+
   const maxCount = 20;
 
-  // Contador de experiencia
+  // Detecta si el bloque está en pantalla
   useEffect(() => {
-    if (count < maxCount) {
-      const timeout = setTimeout(() => setCount(count + 1), 100);
-      return () => clearTimeout(timeout);
-    }
-  }, [count]);
+    const element = containerRef.current;
+    if (!element) return;
 
-  // Efecto de escritura y borrado
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          setCount(0); // reinicia contador cada vez que entra a pantalla
+        } else {
+          setIsInView(false);
+        }
+      },
+      {
+        threshold: 0.4, // ~40% visible
+      }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // Contador de experiencia (solo cuando está visible)
+  useEffect(() => {
+    if (!isInView) return;
+    if (count >= maxCount) return;
+
+    const timeout = setTimeout(() => {
+      setCount((c) => c + 1);
+    }, 80);
+
+    return () => clearTimeout(timeout);
+  }, [count, isInView]);
+
+  // Efecto de escritura y borrado (loop infinito)
   useEffect(() => {
     const word = keywords[wordIndex];
     let charIndex = isDeleting ? word.length : 0;
-    let speed = isDeleting ? 50 : 100;
+    let speed = isDeleting ? 40 : 90;
 
     const typeEffect = setInterval(() => {
       if (!isDeleting) {
@@ -43,7 +76,7 @@ export default function Counters() {
           setCurrentWord(word.substring(0, charIndex + 1));
           charIndex++;
         } else {
-          setTimeout(() => setIsDeleting(true), 1000);
+          setTimeout(() => setIsDeleting(true), 900);
           clearInterval(typeEffect);
         }
       } else {
@@ -62,57 +95,59 @@ export default function Counters() {
   }, [wordIndex, isDeleting]);
 
   return (
-    <section className="relative w-full h-[90vh] flex flex-col items-center justify-center px-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
-      {/* Fondo animado */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black opacity-50"></div>
+    <div
+      ref={containerRef}
+      className="relative overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900/90 via-slate-900/95 to-black/90 px-6 py-10 md:px-10 md:py-14 shadow-2xl min-h-[60vh] md:min-h-[70vh] flex items-center"
+    >
+      {/* borde suave / glow */}
+      <div className="pointer-events-none absolute -inset-px rounded-3xl bg-gradient-to-r from-yellow-500/10 via-yellow-400/5 to-transparent" />
 
-      <div className="relative z-10 container mx-auto text-center space-y-12">
-        {/* Contador de años de experiencia */}
-        <div className="flex flex-col items-center">
-          <h3 className="text-4xl font-extrabold text-yellow-400 tracking-wide drop-shadow-lg">
-            Years of Experience
+      <div className="relative z-10 grid gap-10 md:grid-cols-2 md:items-center w-full">
+        {/* Años de experiencia */}
+        <div className="space-y-4 text-left">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-400">
+            Experiencia
+          </p>
+          <h3 className="text-3xl md:text-4xl font-bold text-white text-balance">
+            Más de <span className="text-yellow-400">{count}+</span> años
+            trabajando con infraestructura, soporte corporativo y soluciones IT.
           </h3>
-          <p className="text-8xl font-bold text-yellow-300 glow">{count}+</p>
+          <p className="text-sm md:text-base text-gray-300">
+            He liderado operaciones y soporte tecnológico en entornos
+            multinacionales, garantizando la continuidad del negocio, la
+            estabilidad de las plataformas y una atención efectiva a los
+            usuarios en toda LATAM.
+          </p>
         </div>
 
-        {/* Animación de escritura de palabras clave */}
-        <div className="flex flex-col items-center">
-          <h3 className="text-4xl font-extrabold text-yellow-400 tracking-wide drop-shadow-lg">
-            Technologies
-          </h3>
-          <div className="text-5xl font-extrabold text-yellow-300 tracking-wide glow">
+        {/* Tecnologías / typing */}
+        <div className="space-y-4 text-left md:text-right">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-400">
+            Stack &amp; herramientas
+          </p>
+          <div className="text-2xl md:text-3xl font-bold text-yellow-300 tracking-wide">
             {currentWord}
-            <span className="animate-blink">|</span>
+            <span className="inline-block animate-blink">|</span>
           </div>
+          <p className="text-xs md:text-sm text-gray-400">
+            Experiencia integrando stacks modernos (Next.js, Supabase, Tailwind)
+            con infraestructura tradicional (Windows, Linux, redes y bases de
+            datos) para desarrollar soluciones completas y sostenibles, más allá
+            del código.
+          </p>
         </div>
       </div>
 
-      {/* Estilos adicionales */}
       <style jsx>{`
-        @keyframes glow {
-          0% {
-            text-shadow: 0 0 5px #ffd700, 0 0 10px #ffea00;
-          }
-          50% {
-            text-shadow: 0 0 20px #ffd700, 0 0 30px #ffea00;
-          }
-          100% {
-            text-shadow: 0 0 5px #ffd700, 0 0 10px #ffea00;
-          }
-        }
-        .glow {
-          animation: glow 1.5s infinite alternate;
-        }
         @keyframes blink {
           50% {
             opacity: 0;
           }
         }
         .animate-blink {
-          display: inline-block;
           animation: blink 0.8s infinite;
         }
       `}</style>
-    </section>
+    </div>
   );
 }
