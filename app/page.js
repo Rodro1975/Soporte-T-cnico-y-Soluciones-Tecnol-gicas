@@ -54,9 +54,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COUNTERS / ABOUT */}
-      <section className="min-h-screen flex items-center bg-background">
-        <div className="w-full max-w-5xl mx-auto px-4 py-16 md:py-24">
+      {/* COUNTERS */}
+      <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-black">
+        <div className="w-full max-w-5xl mx-auto px-4 md:px-6 py-16 md:py-24">
           <Counters />
         </div>
       </section>

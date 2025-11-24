@@ -23,7 +23,7 @@ export default function Counters() {
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isInView, setIsInView] = useState(false);
-  const containerRef = useRef(null);
+  const containerRef = useRef(null); // 👈 importante: sin genérico TS
 
   const maxCount = 20;
 
@@ -98,45 +98,40 @@ export default function Counters() {
   return (
     <div
       ref={containerRef}
-      className="relative overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900/90 via-slate-900/95 to-black/90 px-6 py-10 md:px-10 md:py-14 shadow-2xl min-h-[60vh] md:min-h-[70vh] flex items-center"
+      className="w-full grid gap-10 md:gap-14 md:grid-cols-2 md:items-center"
     >
-      {/* borde suave / glow */}
-      <div className="pointer-events-none absolute -inset-px rounded-3xl bg-gradient-to-r from-yellow-500/10 via-yellow-400/5 to-transparent" />
+      {/* Años de experiencia */}
+      <div className="space-y-4 text-left">
+        <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-yellow-400">
+          Experiencia
+        </p>
+        <h3 className="text-3xl md:text-4xl font-bold text-white text-balance">
+          Más de <span className="text-yellow-400">{count}+</span> años
+          trabajando con infraestructura, soporte corporativo y soluciones IT.
+        </h3>
+        <p className="text-sm md:text-base text-gray-300 max-w-xl">
+          He liderado operaciones y soporte tecnológico en entornos
+          multinacionales, garantizando la continuidad del negocio, la
+          estabilidad de las plataformas y una atención efectiva a los usuarios
+          en toda LATAM.
+        </p>
+      </div>
 
-      <div className="relative z-10 grid gap-10 md:grid-cols-2 md:items-center w-full">
-        {/* Años de experiencia */}
-        <div className="space-y-4 text-left">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-400">
-            Experiencia
-          </p>
-          <h3 className="text-3xl md:text-4xl font-bold text-white text-balance">
-            Más de <span className="text-yellow-400">{count}+</span> años
-            trabajando con infraestructura, soporte corporativo y soluciones IT.
-          </h3>
-          <p className="text-sm md:text-base text-gray-300">
-            He liderado operaciones y soporte tecnológico en entornos
-            multinacionales, garantizando la continuidad del negocio, la
-            estabilidad de las plataformas y una atención efectiva a los
-            usuarios en toda LATAM.
-          </p>
+      {/* Tecnologías / typing */}
+      <div className="space-y-4 text-left md:text-right">
+        <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-yellow-400">
+          Stack &amp; herramientas
+        </p>
+        <div className="text-2xl md:text-3xl font-bold text-yellow-300 tracking-wide">
+          {currentWord}
+          <span className="inline-block animate-blink">|</span>
         </div>
-
-        {/* Tecnologías / typing */}
-        <div className="space-y-4 text-left md:text-right">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-400">
-            Stack &amp; herramientas
-          </p>
-          <div className="text-2xl md:text-3xl font-bold text-yellow-300 tracking-wide">
-            {currentWord}
-            <span className="inline-block animate-blink">|</span>
-          </div>
-          <p className="text-xs md:text-sm text-gray-400">
-            Experiencia integrando stacks modernos (Next.js, Supabase, Tailwind)
-            con infraestructura tradicional (Windows, Linux, redes y bases de
-            datos) para desarrollar soluciones completas y sostenibles, más allá
-            del código.
-          </p>
-        </div>
+        <p className="text-xs md:text-sm text-gray-400 md:ml-auto md:max-w-md">
+          Experiencia integrando stacks modernos (Next.js, Supabase, Tailwind)
+          con infraestructura tradicional (Windows, Linux, redes y bases de
+          datos) para desarrollar soluciones completas y sostenibles, más allá
+          del código.
+        </p>
       </div>
 
       <style jsx>{`
