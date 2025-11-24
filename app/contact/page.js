@@ -1,13 +1,10 @@
-"use client"; // Indicamos que es un Client Component
+"use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import emailjs from "emailjs-com";
-import React from "react";
-import Image from "next/image";
 
 // Inicializa EmailJS con tu Public Key
-emailjs.init("1Z9rEYtD53y4HwJCo"); // Reemplaza con tu Public Key
+emailjs.init("1Z9rEYtD53y4HwJCo"); // OJO: si cambias de cuenta, actualiza aquí
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -18,141 +15,155 @@ export default function Contact() {
 
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-
-  const contacts = [
-    {
-      name: "Gaby",
-      zone: "NA",
-      phone: "+525583358323",
-      icon: "/images/gaby.png",
-    },
-    {
-      name: "David",
-      zone: "EMEC y APPAC",
-      phone: "+447743315120",
-      icon: "/images/david.png",
-    },
-    {
-      name: "Rodrigo",
-      zone: "LATAM",
-      phone: "+573022283964",
-      icon: "/images/rodro.png",
-    },
-    // Agrega más contactos aquí
-  ];
+  const [sending, setSending] = useState(false);
 
   const handleChange = (e) => {
+    setSuccess(false);
+    setError(false);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setSending(true);
+    setSuccess(false);
+    setError(false);
 
     emailjs
       .send(
-        "service_t0p7qz9", // Reemplaza con tu Service ID
-        "template_o0tj7iq", // Reemplaza con tu Template ID
+        "service_t0p7qz9", // Service ID
+        "template_o0tj7iq", // Template ID
         formData
       )
       .then(
-        (result) => {
+        () => {
           setSuccess(true);
+          setError(false);
+          setSending(false);
           setFormData({ name: "", email: "", message: "" });
         },
-        (error) => {
+        (err) => {
+          console.error("Error al enviar correo:", err);
           setError(true);
-          console.error("Error sending email:", error);
+          setSuccess(false);
+          setSending(false);
         }
       );
   };
 
   return (
-    <div className="mt-20 py-16 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 text-center">
-      <section className="py-16">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
-          <p className="text-lg mb-6">
-            Have questions or need assistance? Feel free to reach out to us
-            using the contact form below or through any of the methods provided.
-          </p>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-100 py-16 px-4">
+      <section className="w-full max-w-xl bg-white shadow-2xl rounded-2xl px-8 py-10 md:px-10 md:py-12">
+        <h1 className="text-2xl md:text-3xl font-extrabold mb-3 text-gray-900">
+          Hablemos de tu infraestructura y proyectos IT
+        </h1>
+        <p className="text-sm md:text-base mb-8 text-slate-600">
+          Cuéntame brevemente qué necesitas: soporte, diagnóstico de
+          infraestructura, un desarrollo específico o acompañamiento en un
+          proyecto. Te responderé personalmente lo antes posible.
+        </p>
 
-          {/* Contact Form */}
-          <form
-            className="max-w-lg mx-auto bg-white p-8 rounded shadow-lg"
-            onSubmit={sendEmail}
-          >
-            <div className="mb-4">
-              <label
-                htmlFor="name"
-                className="block text-left text-sm font-medium text-gray-700"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="mt-1 block w-full p-2 border border-gray-300 rounded"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="email"
-                className="block text-left text-sm font-medium text-gray-700"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="mt-1 block w-full p-2 border border-gray-300 rounded"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="message"
-                className="block text-left text-sm font-medium text-gray-700"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="mt-1 block w-full p-2 border border-gray-300 rounded"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className="bg-black text-white py-2 px-4 rounded hover:bg-primary"
+        {/* Contact Form */}
+        <form
+          className="space-y-6"
+          onSubmit={sendEmail}
+          autoComplete="off"
+          noValidate
+        >
+          {/* Campo Nombre */}
+          <div className="relative">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              placeholder=" "
+              className="peer w-full border-b-2 border-slate-300 bg-transparent px-0 py-3 text-base text-slate-900 focus:outline-none focus:border-yellow-500 transition"
+            />
+            <label
+              htmlFor="name"
+              className="absolute left-0 -top-3.5 text-yellow-700 bg-white px-1 text-xs font-bold transition-all duration-200 pointer-events-none
+                peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-500 peer-placeholder-shown:top-3.5 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-yellow-700"
             >
-              Send Message
-            </button>
-          </form>
+              Nombre
+            </label>
+          </div>
 
-          {/* Success/Error Messages */}
-          {success && (
-            <p className="text-green-500 mt-4">Message sent successfully!</p>
-          )}
-          {error && (
-            <p className="text-red-500 mt-4">
-              Error sending message. Please try again.
-            </p>
-          )}
-        </div>
+          {/* Campo Email */}
+          <div className="relative">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              placeholder=" "
+              className="peer w-full border-b-2 border-slate-300 bg-transparent px-0 py-3 text-base text-slate-900 focus:outline-none focus:border-yellow-500 transition"
+            />
+            <label
+              htmlFor="email"
+              className="absolute left-0 -top-3.5 text-yellow-700 bg-white px-1 text-xs font-bold transition-all duration-200 pointer-events-none
+                peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-500 peer-placeholder-shown:top-3.5 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-yellow-700"
+            >
+              Correo electrónico
+            </label>
+          </div>
+
+          {/* Campo Mensaje */}
+          <div className="relative">
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
+              value={formData.message}
+              onChange={handleChange}
+              required
+              placeholder=" "
+              className="peer w-full border-b-2 border-slate-300 bg-transparent px-0 py-3 resize-none text-base text-slate-900 focus:outline-none focus:border-yellow-500 transition"
+            />
+            <label
+              htmlFor="message"
+              className="absolute left-0 -top-3.5 text-yellow-700 bg-white px-1 text-xs font-bold transition-all duration-200 pointer-events-none
+                peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-500 peer-placeholder-shown:top-3.5 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-yellow-700"
+            >
+              Mensaje
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            disabled={sending}
+            className="w-full mt-4 bg-black text-white font-semibold py-3 rounded-lg transition hover:bg-gray-900 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {sending ? "Enviando..." : "Enviar mensaje"}
+          </button>
+        </form>
+
+        {/* Mensajes de Éxito/Error */}
+        {success && (
+          <p className="text-sm text-green-600 font-semibold mt-4">
+            ✅ Mensaje enviado correctamente. Te responderé en cuanto lo revise.
+          </p>
+        )}
+        {error && (
+          <p className="text-sm text-red-600 font-semibold mt-4">
+            Ocurrió un error al enviar el mensaje. Intenta nuevamente en unos
+            minutos.
+          </p>
+        )}
+
+        {/* Nota extra */}
+        <p className="mt-6 text-[11px] md:text-xs text-slate-500">
+          También puedes contactarme por WhatsApp usando el botón flotante o por
+          correo directo a{" "}
+          <span className="font-semibold">
+            rodrigoivanordonezchavez@gmail.com
+          </span>
+          .
+        </p>
       </section>
     </div>
   );

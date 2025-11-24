@@ -37,7 +37,7 @@ const services = [
     description:
       "Resolución de incidencias complejas, troubleshooting avanzado y soporte dedicado para ambientes corporativos exigentes.",
     cta: "Contacta soporte experto",
-    image: "/images/service1.jpg",
+    image: "/images/software.jpg",
   },
 ];
 

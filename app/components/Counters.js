@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from "react";
 const keywords = [
   "Next.js",
   "Node.js",
-  "Supabase",
   "Windows Server",
   "PostgreSQL",
   "VS Code",
@@ -14,6 +13,8 @@ const keywords = [
   "Linux",
   "Hyper-V",
   "HTML & CSS",
+  "React",
+  "javaScript",
 ];
 
 export default function Counters() {

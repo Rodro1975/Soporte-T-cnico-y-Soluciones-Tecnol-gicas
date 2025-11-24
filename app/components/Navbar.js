@@ -1,135 +1,89 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+const NAV_LINKS = [
+  { href: "/", label: "Inicio" },
+  { href: "/portfolio", label: "Portafolio" },
+  { href: "/about", label: "Sobre mí" },
+  { href: "/contact", label: "Contacto" },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+    const onScroll = () => {
+      setScrolled(window.scrollY > 60);
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-secondary bg-opacity-70 backdrop-blur-md"
-          : "bg-secondary"
+        scrolled
+          ? "bg-black/70 backdrop-blur-md border-b border-white/10"
+          : "bg-black/40 backdrop-blur-sm"
       }`}
     >
-      <nav className="container mx-auto flex items-center justify-between px-6">
+      <nav className="max-w-5xl mx-auto flex items-center justify-between px-4 md:px-6 py-3">
         {/* Logo */}
-        <Link href="/">
+        <Link href="/" className="flex items-center">
           <Image
             src="/images/logoRodro.png"
-            alt="Soporte Técnico Logo"
-            height={250}
-            width={250}
-            className="object-contain"
+            alt="Rodro Solutions Logo"
+            width={100}
+            height={100}
+            className="object-contain select-none"
+            priority
           />
         </Link>
 
-        {/* Menú principal */}
-        <ul className="hidden sm:flex space-x-8 text-primary">
-          <li>
-            <Link href="/" className="hover:underline">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/services" className="hover:underline">
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="hover:underline">
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="hover:underline">
-              Contact
-            </Link>
-          </li>
+        {/* NAV Desktop */}
+        <ul className="hidden md:flex items-center space-x-8 text-gray-200 text-sm font-medium tracking-wide">
+          {NAV_LINKS.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className="hover:text-yellow-300 transition-colors"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
-        {/* Menú móvil */}
-        <div className="sm:hidden">
-          <button
-            onClick={toggleMenu}
-            className="text-primary focus:outline-none"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </button>
-        </div>
+        {/* Botón móvil */}
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="md:hidden text-gray-200"
+          aria-label="Toggle navigation menu"
+        >
+          <span className="text-2xl">☰</span>
+        </button>
       </nav>
 
-      {/* Menú desplegable móvil */}
-      <ul
-        className={`sm:hidden absolute top-full left-0 w-full bg-secondary flex flex-col items-center space-y-4 z-40 py-4 px-6 text-primary transition-all duration-300 ${
-          isOpen
-            ? "opacity-100 scale-100"
-            : "opacity-0 scale-95 pointer-events-none"
-        }`}
-      >
-        <li>
-          <Link href="/" className="hover:underline" onClick={toggleMenu}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/services"
-            className="hover:underline"
-            onClick={toggleMenu}
-          >
-            Services
-          </Link>
-        </li>
-        <li>
-          <Link href="/about" className="hover:underline" onClick={toggleMenu}>
-            About Us
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/contact"
-            className="hover:underline"
-            onClick={toggleMenu}
-          >
-            Contact
-          </Link>
-        </li>
-      </ul>
+      {/* Menú móvil */}
+      {isOpen && (
+        <ul className="md:hidden bg-black/90 backdrop-blur-xl text-center py-6 space-y-4 text-gray-200 text-sm font-medium">
+          {NAV_LINKS.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className="block hover:text-yellow-300 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </header>
   );
 }
