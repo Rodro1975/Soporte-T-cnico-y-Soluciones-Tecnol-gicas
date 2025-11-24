@@ -1,142 +1,126 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import Recognition from "../components/Recognition";
 import Bio from "../components/Bio";
+import Recognition from "../components/Recognition";
+import Work from "../components/Work";
 
 export default function About() {
   return (
-    <div className="bg-warm-light text-gray-800">
-      {/* Header Section */}
-      <header className="relative py-16 text-center mt-20">
-        {" "}
-        {/* Added mt-20 to push header down */}
+    <div className="bg-background text-foreground min-h-screen pb-20">
+      {/* HERO CON WARM.JPG */}
+      <section className="relative h-[65vh] flex items-center justify-center bg-fixed bg-cover bg-center">
+        {/* Imagen de fondo */}
         <Image
           src="/images/warm.jpg"
-          alt="Warm Background"
+          alt="Fondo cálido"
           fill
-          style={{ objectFit: "cover", zIndex: -1 }}
-          className="absolute inset-0"
+          priority
+          className="object-cover"
         />
-        <div className="container mx-auto px-4 relative">
-          <div className="relative w-48 h-24 mx-auto mb-8"> </div>
-          <h2 className="text-white text-4xl font-bold uppercase drop-shadow-md">
-            Why Choose Us
+        {/* Overlay para que el texto se lea bien */}
+        <div className="absolute inset-0 bg-black/45" />
+
+        <div className="relative z-10 max-w-3xl px-4 text-center space-y-4">
+          <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-yellow-300">
+            Sobre mí
+          </p>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-balance">
+            Soluciones web e infraestructura.{" "}
+            <span className="block text-yellow-300 mt-1">
+              Opero y desarrollo, todo desde la experiencia IT.
+            </span>
+          </h1>
+          <p className="text-sm md:text-base text-gray-200 max-w-2xl mx-auto">
+            Más de veinte años resolviendo retos IT, construyendo sistemas
+            robustos y aplicaciones web funcionales. Hago que la tecnología deje
+            de ser un problema y se convierta en ventaja.
+          </p>
+        </div>
+      </section>
+
+      {/* BIO (tu componente actual) */}
+      <section className="min-h-screen flex items-center">
+        <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 border-t border-white/5 w-full">
+          <Bio />
+        </div>
+      </section>
+
+      {/* CÓMO TRABAJO / QUÉ APORTO (LIGERO) */}
+      <section className="min-h-screen flex items-center">
+        <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 border-t border-white/5 w-full">
+          <Work />
+        </div>
+      </section>
+
+      {/* RECOGNITION (certificaciones, logros, etc.) */}
+      <section className="min-h-screen flex items-center">
+        <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 border-t border-white/5 w-full">
+          <Recognition />
+        </div>
+      </section>
+
+      {/* PRESENCIA GEOGRÁFICA (MÉXICO / COLOMBIA) */}
+      <section className="min-h-screen flex items-center">
+        <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 border-t border-white/5 w-full">
+          <h2 className="text-xl md:text-2xl font-extrabold mb-4 text-black">
+            Experiencia internacional: México & Colombia
           </h2>
-        </div>
-      </header>
+          <p className="text-sm md:text-base text-gray-600 max-w-3xl mb-10">
+            Más que ubicación: conecto equipos, tecnología y cultura en
+            operaciones reales. Experiencia comprobada en ambientes locales y
+            multinacionales, desde el día a día hasta proyectos estratégicos.
+          </p>
 
-      {/* Bio Section */}
-      <section>
-        <Bio />
-      </section>
-
-      {/* About Us Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h2 className="text-4xl font-bold mb-6">
-              About Rodro Support and Technological Solutions
-            </h2>
-            <p className="text-lg mb-4">
-              We are dedicated to providing innovative and reliable IT solutions
-              that empower businesses to thrive. Our expertise ensures tailored
-              services that address today’s technology challenges.
-            </p>
-            <p className="text-lg">
-              With a client-centric approach, we become your trusted partner in
-              navigating IT complexities.
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <Image
-              src="/images/web.jpg"
-              alt="Team Collaboration"
-              width={600}
-              height={400}
-              className="rounded-lg shadow-lg"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Mission, Vision, and Values Section */}
-      <section className="mt-20 py-16 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 text-center">
-        <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Our Mission",
-              text: "To deliver exceptional IT support and solutions that enhance productivity and efficiency.",
-            },
-            {
-              title: "Our Vision",
-              text: "To be a leader in IT solutions, recognized for excellence, innovation, and customer satisfaction.",
-            },
-            {
-              title: "Core Values",
-              text: "Innovation, Integrity, Excellence, Customer Focus, Collaboration.",
-            },
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              className="p-6 bg-white shadow-lg rounded-lg"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h3 className="text-2xl font-semibold mb-4 text-warm-dark">
-                {item.title}
-              </h3>
-              <p className="text-gray-700">{item.text}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      <section>
-        {/* Recognition Section */}
-        <Recognition />
-      </section>
-
-      {/* Geographic Presence Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Our Presence</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            {[
-              {
-                country: "Mexico",
-                image: "/images/mexico.jpg",
-                text: "Strong presence in Mexico, serving various industries with top-tier IT solutions.",
-              },
-              {
-                country: "Colombia",
-                image: "/images/colombia.jpg",
-                text: "Committed to delivering exceptional technological solutions in Colombia.",
-              },
-            ].map((location, index) => (
-              <motion.div
-                key={index}
-                className="relative group overflow-hidden rounded-lg shadow-lg w-full max-w-sm mx-auto"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="relative w-full h-64">
-                  <Image
-                    src={location.image}
-                    alt={`${location.country} - IT Solutions`}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    className="rounded-lg group-hover:opacity-80 transition-opacity duration-300"
-                  />
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4">
-                  <p className="text-white text-lg font-bold text-center">
-                    {location.text}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* México */}
+            <div className="relative group shadow-xl overflow-hidden h-[220px] flex items-end">
+              <Image
+                src="/images/mexico.jpg"
+                alt="México"
+                fill
+                className="object-cover group-hover:scale-105 transition duration-500 ease-in-out"
+                style={{ zIndex: 1 }}
+              />
+              <div
+                className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition duration-300"
+                style={{ zIndex: 2 }}
+              />
+              <div className="relative z-10 px-6 py-6 backdrop-blur-sm bg-black/35 w-full">
+                <h3 className="font-extrabold text-yellow-300 text-lg mb-1">
+                  México
+                </h3>
+                <p className="text-gray-200 text-sm">
+                  Soporte, despliegues técnicos y liderazgo en planta y oficina.
+                  Experiencia real adaptando tecnología a las necesidades del
+                  negocio.
+                </p>
+              </div>
+            </div>
+            {/* Colombia */}
+            <div className="relative group shadow-xl overflow-hidden h-[220px] flex items-end">
+              <Image
+                src="/images/colombia.jpg"
+                alt="Colombia"
+                fill
+                className="object-cover group-hover:scale-105 transition duration-500 ease-in-out"
+                style={{ zIndex: 1 }}
+              />
+              <div
+                className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition duration-300"
+                style={{ zIndex: 2 }}
+              />
+              <div className="relative z-10 px-6 py-6 backdrop-blur-sm bg-black/35 w-full">
+                <h3 className="font-extrabold text-yellow-300 text-lg mb-1">
+                  Colombia
+                </h3>
+                <p className="text-gray-200 text-sm">
+                  Proyectos regionales y soporte multinacional para compañías
+                  líderes. Impulso la continuidad y evolución tecnológica en
+                  ambientes complejos.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
