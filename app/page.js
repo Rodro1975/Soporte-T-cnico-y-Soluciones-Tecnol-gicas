@@ -79,14 +79,12 @@ export default function Home() {
         <div className="relative z-10 max-w-3xl text-center px-6 space-y-8">
           {/* título */}
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight text-balance">
-            ¿Listo para optimizar tu infraestructura IT y alcanzar el siguiente
-            nivel?
+            Impulsa tu infraestructura IT.
           </h2>
 
           <p className="text-lg md:text-xl text-gray-800/90 max-w-xl mx-auto text-balance">
-            Analicemos juntos tu operación, tus objetivos y el estado actual de
-            tu infraestructura. Te presentaré una hoja de ruta realista,
-            eficiente y libre de tecnicismos innecesarios.
+            Analicemos tu operación y te ayudo a definir una estrategia clara,
+            práctica y sin tecnicismos.
           </p>
 
           {/* CTA */}

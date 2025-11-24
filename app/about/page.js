@@ -27,15 +27,13 @@ export default function About() {
             Sobre mí
           </p>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-balance">
-            Soluciones web e infraestructura.
+            Web, infraestructura y operación IT.
             <span className="block text-yellow-300 mt-1">
-              Opero y desarrollo, todo desde la experiencia IT.
+              Experiencia para proyectos que requieren resultados reales.
             </span>
           </h1>
           <p className="text-sm md:text-base text-gray-200 max-w-2xl mx-auto">
-            Más de veinte años resolviendo retos IT, construyendo sistemas
-            robustos y aplicaciones web funcionales. Hago que la tecnología deje
-            de ser un problema y se convierta en ventaja.
+            Hago que la tecnología funcione para ti y potencie tu día a día.
           </p>
         </div>
       </section>

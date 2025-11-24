@@ -55,12 +55,12 @@ export default function Contact() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-100 py-16 px-4">
       <section className="w-full max-w-xl bg-white shadow-2xl rounded-2xl px-8 py-10 md:px-10 md:py-12">
         <h1 className="text-2xl md:text-3xl font-extrabold mb-3 text-gray-900">
-          Hablemos de tu infraestructura y proyectos IT
+          Cuéntame tu idea o reto IT
         </h1>
         <p className="text-sm md:text-base mb-8 text-slate-600">
-          Cuéntame brevemente qué necesitas: soporte, diagnóstico de
-          infraestructura, un desarrollo específico o acompañamiento en un
-          proyecto. Te responderé personalmente lo antes posible.
+          Escribe en pocas líneas qué necesitas: soporte, diagnóstico,
+          desarrollo o acompañamiento en tu proyecto. Te responderé
+          personalmente.
         </p>
 
         {/* Contact Form */}
