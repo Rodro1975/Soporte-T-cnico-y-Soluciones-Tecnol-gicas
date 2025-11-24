@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import WebPortfolio from "../components/WebPortfolio";
+import WebPortfolio from "../components/Work";
 
 const services = [
   {

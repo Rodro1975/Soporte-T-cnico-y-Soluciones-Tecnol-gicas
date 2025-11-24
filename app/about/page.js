@@ -4,6 +4,7 @@ import Image from "next/image";
 import Bio from "../components/Bio";
 import Recognition from "../components/Recognition";
 import Work from "../components/Work";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
@@ -26,7 +27,7 @@ export default function About() {
             Sobre mí
           </p>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-balance">
-            Soluciones web e infraestructura.{" "}
+            Soluciones web e infraestructura.
             <span className="block text-yellow-300 mt-1">
               Opero y desarrollo, todo desde la experiencia IT.
             </span>
@@ -39,88 +40,102 @@ export default function About() {
         </div>
       </section>
 
-      {/* BIO (tu componente actual) */}
+      {/* BIO */}
       <section className="min-h-screen flex items-center">
         <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 border-t border-white/5 w-full">
           <Bio />
         </div>
       </section>
 
-      {/* CÓMO TRABAJO / QUÉ APORTO (LIGERO) */}
+      {/* CÓMO TRABAJO / QUÉ APORTO */}
       <section className="min-h-screen flex items-center">
         <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 border-t border-white/5 w-full">
           <Work />
         </div>
       </section>
 
-      {/* RECOGNITION (certificaciones, logros, etc.) */}
+      {/* RECOGNITION */}
       <section className="min-h-screen flex items-center">
         <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 border-t border-white/5 w-full">
           <Recognition />
         </div>
       </section>
 
-      {/* PRESENCIA GEOGRÁFICA (MÉXICO / COLOMBIA) */}
-      <section className="min-h-screen flex items-center">
-        <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 border-t border-white/5 w-full">
-          <h2 className="text-xl md:text-2xl font-extrabold mb-4 text-black">
-            Experiencia internacional: México & Colombia
-          </h2>
-          <p className="text-sm md:text-base text-gray-600 max-w-3xl mb-10">
-            Más que ubicación: conecto equipos, tecnología y cultura en
-            operaciones reales. Experiencia comprobada en ambientes locales y
-            multinacionales, desde el día a día hasta proyectos estratégicos.
-          </p>
+      {/* PRESENCIA GEOGRÁFICA */}
+      <section className="relative min-h-screen w-full flex items-center bg-transparent overflow-visible">
+        {/* SIN GLOW DECORATIVO */}
+        {/* Corte curvo inferior */}
+        <div className="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-[180vw] h-40 bg-background rounded-t-[999px]" />
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* México */}
-            <div className="relative group shadow-xl overflow-hidden h-[220px] flex items-end">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 w-full">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl font-extrabold text-center mb-4 text-yellow-400"
+          >
+            Experiencia internacional
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-sm md:text-base text-gray-700 text-center max-w-3xl mx-auto mb-12"
+          >
+            México & Colombia: dos contextos, un mismo enfoque estratégico.
+          </motion.p>
+
+          <div className="grid md:grid-cols-2 gap-10 md:gap-14">
+            {/* Mexico */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+              className="relative shadow-xl overflow-hidden h-[260px] rounded-xl group"
+            >
               <Image
                 src="/images/mexico.jpg"
-                alt="México"
                 fill
-                className="object-cover group-hover:scale-105 transition duration-500 ease-in-out"
-                style={{ zIndex: 1 }}
+                className="object-cover group-hover:scale-110 transition duration-700"
               />
-              <div
-                className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition duration-300"
-                style={{ zIndex: 2 }}
-              />
-              <div className="relative z-10 px-6 py-6 backdrop-blur-sm bg-black/35 w-full">
-                <h3 className="font-extrabold text-yellow-300 text-lg mb-1">
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition" />
+              <div className="absolute bottom-0 p-6 backdrop-blur-sm bg-black/25 w-full">
+                <h3 className="text-yellow-400 font-extrabold text-lg mb-1">
                   México
                 </h3>
-                <p className="text-gray-200 text-sm">
-                  Soporte, despliegues técnicos y liderazgo en planta y oficina.
-                  Experiencia real adaptando tecnología a las necesidades del
-                  negocio.
+                <p className="text-gray-100 text-sm">
+                  Soporte, despliegues técnicos y liderazgo operativo real.
                 </p>
               </div>
-            </div>
+            </motion.div>
+
             {/* Colombia */}
-            <div className="relative group shadow-xl overflow-hidden h-[220px] flex items-end">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+              className="relative shadow-xl overflow-hidden h-[260px] rounded-xl group"
+            >
               <Image
                 src="/images/colombia.jpg"
-                alt="Colombia"
                 fill
-                className="object-cover group-hover:scale-105 transition duration-500 ease-in-out"
-                style={{ zIndex: 1 }}
+                className="object-cover group-hover:scale-110 transition duration-700"
               />
-              <div
-                className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition duration-300"
-                style={{ zIndex: 2 }}
-              />
-              <div className="relative z-10 px-6 py-6 backdrop-blur-sm bg-black/35 w-full">
-                <h3 className="font-extrabold text-yellow-300 text-lg mb-1">
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition" />
+              <div className="absolute bottom-0 p-6 backdrop-blur-sm bg-black/25 w-full">
+                <h3 className="text-yellow-400 font-extrabold text-lg mb-1">
                   Colombia
                 </h3>
-                <p className="text-gray-200 text-sm">
-                  Proyectos regionales y soporte multinacional para compañías
-                  líderes. Impulso la continuidad y evolución tecnológica en
-                  ambientes complejos.
+                <p className="text-gray-100 text-sm">
+                  Proyectos multinacionales con enfoque estratégico y operativo.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
