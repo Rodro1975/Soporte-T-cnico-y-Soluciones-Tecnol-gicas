@@ -163,7 +163,7 @@ export default function PortfolioPage() {
   }, []);
 
   return (
-    <div className="bg-background text-foreground min-h-screen pb-20">
+    <div className="bg-background text-foreground min-h-screen pb-20 overflow-x-hidden">
       {/* Intro */}
       <section className="max-w-5xl mx-auto px-4 md:px-6 pt-8 md:pt-12 pb-10">
         <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-yellow-500">
