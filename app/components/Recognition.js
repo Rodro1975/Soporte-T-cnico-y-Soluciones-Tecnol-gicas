@@ -5,20 +5,13 @@ import { motion } from "framer-motion";
 
 export default function Recognition() {
   return (
-    <section className="relative min-h-screen w-screen py-24 bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-100 overflow-visible left-1/2 -translate-x-1/2">
-      {/* Glows decorativos */}
-      <div className="pointer-events-none absolute -right-32 -top-24 w-64 h-64 rounded-full bg-yellow-400/40 blur-3xl" />
-      <div className="pointer-events-none absolute -left-24 bottom-10 w-56 h-56 rounded-full bg-yellow-200/40 blur-3xl" />
-
-      {/* Corte curvo inferior grande */}
-      <div className="pointer-events-none absolute -bottom-36 left-1/2 -translate-x-1/2 w-[220vw] h-52 bg-background rounded-t-[999px]" />
-
-      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center gap-16">
+    <section className="relative w-full py-20 md:py-24 bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-100">
+      <div className="max-w-5xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center gap-16">
         {/* Bloque imágenes vertical */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ amount: 0.3 }} // 🔁 ahora se activa cada vez que entra
+          viewport={{ amount: 0.3 }}
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center gap-6 md:w-1/2 w-full"
         >
@@ -30,7 +23,9 @@ export default function Recognition() {
               className="object-contain"
             />
           </div>
+
           <div className="grid grid-cols-2 gap-4 w-full max-w-md">
+            {/* Esta la sigues ocultando en móvil como antes */}
             <div className="relative h-40 shadow-lg hidden md:block">
               <Image
                 src="/images/fraganciasIff.jpg"
@@ -50,11 +45,11 @@ export default function Recognition() {
           </div>
         </motion.div>
 
-        {/* Bloque texto fluido */}
+        {/* Bloque texto */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ amount: 0.3 }} // 🔁 igual aquí
+          viewport={{ amount: 0.3 }}
           transition={{ duration: 0.6 }}
           className="text-sm md:text-base text-gray-800 leading-relaxed space-y-4 md:w-1/2 w-full"
         >

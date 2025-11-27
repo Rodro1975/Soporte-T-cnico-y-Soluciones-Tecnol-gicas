@@ -8,16 +8,16 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <div className="bg-background text-foreground min-h-screen pb-20">
+    <div className="bg-background text-foreground min-h-screen pb-20 overflow-x-hidden">
       {/* HERO CON WARM.JPG */}
-      <section className="relative h-[65vh] flex items-center justify-center bg-fixed bg-cover bg-center">
+      <section className="relative h-[65vh] flex items-center justify-center bg-cover bg-center md:bg-fixed overflow-hidden">
         {/* Imagen de fondo */}
         <Image
           src="/images/warm.jpg"
           alt="Fondo cálido"
           fill
           priority
-          className="object-cover"
+          className="object-cover pointer-events-none select-none"
         />
         {/* Overlay para que el texto se lea bien */}
         <div className="absolute inset-0 bg-black/45" />
@@ -53,17 +53,14 @@ export default function About() {
       </section>
 
       {/* RECOGNITION */}
-      <section className="min-h-screen flex items-center">
-        <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 border-t border-white/5 w-full">
-          <Recognition />
-        </div>
-      </section>
+      <div className="border-t border-white/5">
+        <Recognition />
+      </div>
 
       {/* PRESENCIA GEOGRÁFICA */}
-      <section className="relative min-h-screen w-full flex items-center bg-transparent overflow-visible">
-        {/* SIN GLOW DECORATIVO */}
+      <section className="relative min-h-screen w-full flex items-center bg-transparent overflow-x-hidden">
         {/* Corte curvo inferior */}
-        <div className="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-[180vw] h-40 bg-background rounded-t-[999px]" />
+        <div className="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-[140vw] md:w-[180vw] h-40 bg-background rounded-t-[999px]" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 w-full">
           <motion.h2
@@ -97,6 +94,7 @@ export default function About() {
             >
               <Image
                 src="/images/mexico.jpg"
+                alt="México"
                 fill
                 className="object-cover group-hover:scale-110 transition duration-700"
               />
@@ -121,6 +119,7 @@ export default function About() {
             >
               <Image
                 src="/images/colombia.jpg"
+                alt="Colombia"
                 fill
                 className="object-cover group-hover:scale-110 transition duration-700"
               />
