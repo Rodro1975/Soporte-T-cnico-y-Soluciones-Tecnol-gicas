@@ -31,15 +31,15 @@ export default function Navbar() {
           : "bg-gradient-to-b from-black/55 via-black/25 to-transparent"
       }`}
     >
-      <nav className="relative max-w-5xl mx-auto flex items-center justify-between px-4 md:px-6 py-3">
+      <nav className="relative max-w-5xl mx-auto flex items-center justify-between px-4 py-2 md:px-6 md:py-3">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/logoRodro.png"
-            alt="Rodro Solutions Logo"
-            width={100}
-            height={100}
-            className="object-contain select-none"
+            src="/brand/rodro-wordmark.png"
+            alt="Rodro Soluciones Tecnológicas"
+            width={480}
+            height={228}
+            className="h-12 w-auto select-none md:h-14"
             priority
           />
         </Link>
