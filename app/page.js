@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import CarouselServices from "./components/CarouselServs";
 import Counters from "./components/Counters";
 import Clients from "./components/Clients";
 import HeroType from "./components/HeroType";
+import Capabilities from "./components/Capabilities";
 
 export default function Home() {
   return (
@@ -51,10 +51,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="min-h-screen flex items-center bg-background">
-        <div className="w-full max-w-5xl mx-auto px-4 py-16 md:py-24">
-          <CarouselServices />
+      {/* CAPABILITIES */}
+      <section className="bg-slate-50">
+        <div className="w-full max-w-6xl mx-auto px-5 py-20 md:px-6 md:py-28">
+          <Capabilities />
         </div>
       </section>
 
