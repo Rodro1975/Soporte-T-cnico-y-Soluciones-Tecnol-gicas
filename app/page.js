@@ -11,7 +11,7 @@ export default function Home() {
     <div className="bg-background text-foreground">
       {/* HERO - pantalla completa */}
       <section
-        className="relative min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-5rem)] flex items-center justify-center bg-cover bg-center"
+        className="relative -mt-16 min-h-screen pt-16 md:-mt-20 md:pt-20 flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: "url('/images/hero.jpg')" }}
       >
         {/* Overlay */}
