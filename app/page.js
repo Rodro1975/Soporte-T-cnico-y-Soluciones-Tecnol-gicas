@@ -4,6 +4,7 @@ import React from "react";
 import CarouselServices from "./components/CarouselServs";
 import Counters from "./components/Counters";
 import Clients from "./components/Clients";
+import HeroType from "./components/HeroType";
 
 export default function Home() {
   return (
@@ -18,20 +19,19 @@ export default function Home() {
 
         {/* Contenido */}
         <div className="relative z-10 max-w-4xl px-5 text-center space-y-6">
-          <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-yellow-400">
-            Rodro · Soluciones Tecnológicas
-          </p>
+          <HeroType />
 
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-white text-balance drop-shadow-lg">
-            Infraestructura, operación IT/OT y software
+            Infraestructura IT/OT y software
             <span className="block text-yellow-400 mt-2">
-              para resolver necesidades reales de empresas y negocios.
+              para resolver necesidades reales de tu operación.
             </span>
           </h1>
 
           <p className="max-w-2xl mx-auto text-base md:text-xl text-gray-100/90 text-balance">
-            Analizo el entorno, conecto las áreas técnicas y construyo
-            soluciones pensadas para la operación diaria.
+            Cada solución parte de entender tu entorno, conectar las áreas
+            técnicas y construir lo adecuado para que tu operación funcione
+            mejor.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
