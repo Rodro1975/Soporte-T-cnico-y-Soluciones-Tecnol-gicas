@@ -9,20 +9,20 @@ const projects = [
     name: "Suma",
     category: "Software SaaS",
     status: "En operación",
-    headline: "Más claridad, menos vueltas.",
+    headline: "Suma a tu negocio.",
     description:
-      "Plataforma de gestión empresarial que conecta ventas, inventario, servicios y control financiero en un solo lugar.",
+      "Plataforma de gestión para pequeños negocios que integra ventas, remisiones, inventario, clientes, proveedores y movimientos de Caja en un solo lugar.",
     image: "/projects/suma-commercial.webp",
     url: "https://sumayorganiza.com",
     background: "#e4eaff",
   },
   {
     name: "Aion",
-    category: "Tecnología empresarial",
-    status: "En desarrollo",
+    category: "Software SaaS",
+    status: "En evaluación comercial",
     headline: "Asistencia, presencia y permanencia.",
     description:
-      "Solución digital para el registro y control de presencia mediante códigos QR y validación de ubicación.",
+      "Plataforma inteligente de control y verificación de presencia que permite gestionar asistencia, horarios y permanencia durante una actividad, sin necesidad de hardware dedicado.",
     image: "/projects/aion.webp",
     url: "https://aion-sigma.vercel.app",
     background: "#e2e8f0",
@@ -33,7 +33,7 @@ const projects = [
     status: "Prototipo digital",
     headline: "Energía que conecta.",
     description:
-      "Concepto de estaciones inteligentes de carga para vehículos eléctricos ligeros, con gestión y monitoreo de energía.",
+      "Plataforma adaptable para la gestión y monitoreo de estaciones inteligentes de carga eléctrica, con potencial de evolución desde bicicletas eléctricas hasta carros de golf y automóviles eléctricos.",
     image: "/projects/wattly.webp",
     url: "https://wattly.mx",
     background: "#17212e",
@@ -44,9 +44,9 @@ const projects = [
     status: "Proyecto de titulación",
     headline: "Preservar para transformar.",
     description:
-      "Plataforma de consulta y gestión documental desarrollada para la Universidad de Guanajuato, pendiente de implementación institucional.",
+      "Plataforma de consulta y gestión documental desarrollada para la Universidad de Guanajuato. Actualmente disponible como presentación visual del proyecto.",
     image: "/projects/archivo-ug.webp",
-    url: "https://archivo-historico-libreria-ug-supabase.vercel.app/",
+    url: "/portfolio",
     background: "#e9e4da",
   },
 ];
