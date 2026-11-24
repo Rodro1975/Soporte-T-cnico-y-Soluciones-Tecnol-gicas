@@ -5,10 +5,10 @@ export default function WhatsAppButton() {
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <a
-        href="https://wa.me/573022283964"
+        href="https://wa.me/527711408213"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Contáctame por WhatsApp"
+        aria-label="Contáctanos por WhatsApp"
         className="w-14 h-14 rounded-full bg-green-500 shadow-lg shadow-black/40 flex items-center justify-center hover:bg-green-400 transition"
       >
         <Image
