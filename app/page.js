@@ -37,16 +37,17 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
             <a
-              href="/contact"
+              href="#capabilities"
               className="inline-flex items-center justify-center rounded-full bg-yellow-400 text-black font-semibold px-8 py-3 text-sm sm:text-base hover:bg-yellow-300 transition duration-200"
             >
-              Cuéntame tu necesidad
+              Encuentra tu solución
             </a>
+
             <a
               href="#projects"
               className="inline-flex items-center justify-center rounded-full border border-gray-400/60 text-gray-100 px-8 py-3 text-sm sm:text-base hover:bg-white/10 transition duration-200"
             >
-              Ver casos destacados
+              Explora nuestros proyectos
             </a>
           </div>
         </div>
@@ -110,32 +111,55 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
+
+      {/* CONTACTO COMERCIAL */}
       <section
         id="contact"
-        className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-100"
+        className="relative flex items-center bg-yellow-400 text-neutral-950"
       >
-        {/* overlay sutil */}
-        <div className="absolute inset-0 bg-black/5" />
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-16 lg:py-10">
+          {/* Encabezado editorial */}
+          <div className="flex items-center gap-3 mb-6 md:mb-8">
+            <span className="h-px w-10 bg-neutral-950" />
+            <p className="text-xs font-semibold uppercase tracking-[0.25em]">
+              Construyamos algo juntos
+            </p>
+          </div>
 
-        <div className="relative z-10 max-w-3xl text-center px-6 space-y-8">
-          {/* título */}
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight text-balance">
-            Impulsa tu infraestructura IT.
+          {/* Mensaje principal */}
+          <h2 className="text-[clamp(2.75rem,7.5vw,7.5rem)] font-black leading-[0.92] tracking-[-0.06em]">
+            <span className="block">TU SIGUIENTE</span>
+
+            <span className="block">RETO.</span>
+
+            <span className="block mt-2">NUESTRA SOLUCIÓN.</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-800/90 max-w-xl mx-auto text-balance">
-            Analicemos tu operación y te ayudo a definir una estrategia clara,
-            práctica y sin tecnicismos.
-          </p>
+          {/* Conversión comercial */}
+          <div className="mt-8 md:mt-10 border-t border-black/30 pt-6 md:pt-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div className="max-w-xl space-y-2">
+              <p className="text-lg md:text-2xl font-bold">
+                Toda solución comienza con una conversación.
+              </p>
 
-          {/* CTA */}
-          <div className="flex justify-center">
+              <p className="text-sm md:text-lg text-neutral-800">
+                Conectemos nuestra experiencia con los retos de tu negocio y
+                hagamos que las cosas sucedan.
+              </p>
+            </div>
+
             <a
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-black text-white font-semibold px-10 py-4 text-base md:text-lg hover:bg-gray-800 transition duration-200"
+              className="inline-flex self-start lg:self-auto shrink-0 items-center justify-center rounded-full bg-black px-8 py-4 md:px-10 md:py-5 text-sm md:text-base font-semibold text-white hover:bg-neutral-800 transition-colors"
             >
-              Agendar llamada gratuita
+              Pongámonos en contacto
             </a>
+          </div>
+
+          {/* Cierre editorial */}
+          <div className="mt-8 md:mt-10 flex flex-wrap items-center justify-between gap-3 text-[10px] md:text-xs font-semibold uppercase tracking-[0.18em] text-neutral-800">
+            <span>México — Colombia</span>
+            <span>Tecnología sin fronteras</span>
           </div>
         </div>
       </section>
