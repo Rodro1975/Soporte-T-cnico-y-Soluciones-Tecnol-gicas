@@ -123,8 +123,8 @@ export default function Counters() {
       {/* Navegación a la siguiente sección */}
       <div className="mt-8 flex justify-center">
         <a
-          href="#projects"
-          aria-label="Continuar a experiencia empresarial"
+          href="#capabilities"
+          aria-label="Continuar a capacidades"
           className="flex h-12 w-12 items-center justify-center rounded-full border border-white/40 text-white transition duration-300 hover:border-yellow-400 hover:bg-yellow-400 hover:text-black"
         >
           <svg

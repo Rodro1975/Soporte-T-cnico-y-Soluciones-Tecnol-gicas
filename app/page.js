@@ -51,17 +51,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CAPABILITIES */}
-      <section className="bg-slate-50">
-        <div className="w-full max-w-6xl mx-auto px-5 py-20 md:px-6 md:py-28">
-          <Capabilities />
+      {/* COUNTERS */}
+      <section
+        id="experience"
+        className="relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-black"
+      >
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
+          <Counters />
         </div>
       </section>
 
-      {/* COUNTERS */}
-      <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-black">
+      {/* CAPABILITIES */}
+      <section id="capabilities" className="flex items-center bg-yellow-400">
         <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
-          <Counters />
+          <Capabilities />
         </div>
       </section>
 
