@@ -34,7 +34,7 @@ const projects = [
     headline: "Energía que conecta.",
     description:
       "Concepto de estaciones inteligentes de carga para vehículos eléctricos ligeros, con gestión y monitoreo de energía.",
-    image: "/projects/wattly.png",
+    image: "/projects/wattly.webp",
     url: "https://wattly.mx",
     background: "#17212e",
   },

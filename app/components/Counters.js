@@ -109,10 +109,10 @@ export default function Counters() {
         {/* Composición geométrica */}
         <div className="relative flex items-center justify-center">
           <Image
-            src="/experience/geometry.png"
+            src="/experience/geometry.webp"
             alt=""
-            width={1376}
-            height={1119}
+            width={1200}
+            height={1000}
             sizes="(max-width: 1023px) 100vw, 45vw"
             className="experience-geometry h-auto w-full max-w-[680px] object-contain"
           />
