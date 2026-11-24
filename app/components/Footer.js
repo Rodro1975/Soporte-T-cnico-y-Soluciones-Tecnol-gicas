@@ -4,74 +4,126 @@ import { FaLinkedin, FaGithub, FaPhone, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-slate-800 bg-black">
-      <div className="max-w-5xl mx-auto px-4 py-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        {/* Logo + descripción corta */}
-        <div className="flex items-center gap-4">
-          <Image
-            src="/images/logoRodro.png"
-            alt="Rodro Soporte Técnico"
-            width={80}
-            height={80}
-            className="object-contain"
-          />
-          <div className="text-xs md:text-sm text-slate-300 space-y-1">
-            <p className="font-semibold">
-              Rodro · Soporte Técnico &amp; Soluciones Tecnológicas
-            </p>
-            <p className="text-slate-400">
-              Infraestructura, soporte corporativo y desarrollo de soluciones a
-              medida para empresas en México y Colombia.
-            </p>
-          </div>
-        </div>
+    <footer className="w-full border-t border-white/10 bg-black text-slate-300">
+      <div className="max-w-5xl mx-auto px-6 py-10 md:py-12">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10 md:justify-items-center">
+          {" "}
+          {/* Identidad corporativa */}
+          <div className="space-y-4">
+            <Link href="/" className="inline-block">
+              <Image
+                src="/brand/rodro-wordmark.png"
+                alt="Rodro Soluciones Tecnológicas"
+                width={480}
+                height={228}
+                className="h-16 w-auto select-none"
+              />
+            </Link>
 
-        {/* Contacto + redes */}
-        <div className="flex flex-col items-start md:items-end gap-3 text-xs md:text-sm text-slate-300">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <FaPhone className="text-yellow-500" />
-              <a href="tel:+573022283964" className="hover:text-yellow-300">
-                +57 302 228 3964
-              </a>
+            <p className="max-w-xs text-sm leading-relaxed text-slate-400">
+              Tecnología, infraestructura y software para impulsar tu negocio.
+            </p>
+
+            <p className="text-xs text-slate-400">
+              Presencia en México y Colombia.
+            </p>
+
+            <div className="flex items-center gap-4">
+              <Link
+                href="https://www.linkedin.com/in/rodrigo-iv%C3%A1n-ordo%C3%B1ez-ch%C3%A1vez-788127189/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-yellow-400 transition-colors hover:text-white"
+              >
+                <FaLinkedin size={22} />
+              </Link>
+
+              <Link
+                href="https://github.com/Rodro1975"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="text-yellow-400 transition-colors hover:text-white"
+              >
+                <FaGithub size={22} />
+              </Link>
             </div>
-            <div className="flex items-center gap-2">
-              <FaEnvelope className="text-yellow-500" />
+          </div>
+          {/* Soluciones */}
+          <div className="space-y-4">
+            <h2 className="text-sm font-semibold uppercase tracking-widest text-yellow-400">
+              Soluciones
+            </h2>
+
+            <ul className="space-y-3 text-sm text-slate-400">
+              <li>Infraestructura IT/OT</li>
+              <li>Soporte tecnológico</li>
+              <li>Desarrollo de software</li>
+              <li>Field Services &amp; Smart Hands</li>
+            </ul>
+
+            <Link
+              href="/portfolio"
+              className="inline-block text-sm text-yellow-400 transition-colors hover:text-white"
+            >
+              Conoce nuestro portafolio →
+            </Link>
+          </div>
+          {/* Contacto */}
+          <div className="space-y-4">
+            <h2 className="text-sm font-semibold uppercase tracking-widest text-yellow-400">
+              Contacto
+            </h2>
+
+            <div className="space-y-4 text-sm">
+              <div>
+                <p className="mb-1 text-xs font-medium text-slate-400">
+                  México
+                </p>
+                <a
+                  href="tel:+527711408213"
+                  className="flex items-center gap-2 transition-colors hover:text-yellow-400"
+                >
+                  <FaPhone className="text-xs text-yellow-400" />
+                  +52 771 140 8213
+                </a>
+              </div>
+
+              <div>
+                <p className="mb-1 text-xs font-medium text-slate-400">
+                  Colombia
+                </p>
+                <a
+                  href="tel:+573022283964"
+                  className="flex items-center gap-2 transition-colors hover:text-yellow-400"
+                >
+                  <FaPhone className="text-xs text-yellow-400" />
+                  +57 302 228 3964
+                </a>
+              </div>
+
               <a
                 href="mailto:rodrigoivanordonezchavez@gmail.com"
-                className="hover:text-yellow-300"
+                className="flex items-center gap-2 transition-colors hover:text-yellow-400"
               >
-                rodrigoivanordonezchavez@gmail.com
+                <FaEnvelope className="text-yellow-400" />
+                Correo electrónico
               </a>
             </div>
-          </div>
-
-          <div className="flex items-center gap-4 mt-1">
-            <Link
-              href="https://www.linkedin.com/in/rodrigo-iv%C3%A1n-ordo%C3%B1ez-ch%C3%A1vez-788127189/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-yellow-500 hover:text-yellow-300 transition-colors duration-200"
-            >
-              <FaLinkedin size={20} />
-            </Link>
-            <Link
-              href="https://github.com/Rodro1975"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-yellow-500 hover:text-yellow-300 transition-colors duration-200"
-            >
-              <FaGithub size={20} />
-            </Link>
           </div>
         </div>
       </div>
 
-      {/* Línea final */}
-      <div className="border-t border-slate-800">
-        <div className="max-w-5xl mx-auto px-4 py-3 text-[11px] md:text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between gap-2">
-          <p>© 2025 Rodro Technical Support. Todos los derechos reservados.</p>
-          <p>Diseñado y desarrollado por Rodrigo Iván Ordóñez Chávez.</p>
+      {/* Derechos reservados y autoría */}
+      <div className="border-t border-white/10">
+        <div className="max-w-5xl mx-auto flex flex-col items-center gap-2 px-6 py-5 text-center text-xs leading-relaxed text-slate-400">
+          <p>
+            © {new Date().getFullYear()} Rodro Soluciones Tecnológicas. Todos
+            los derechos reservados.
+          </p>
+
+          <p>Diseño y desarrollo web: Ing. Rodrigo Iván Ordóñez Chávez.</p>
         </div>
       </div>
     </footer>

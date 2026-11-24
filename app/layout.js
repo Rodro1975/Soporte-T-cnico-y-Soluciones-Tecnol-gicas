@@ -1,6 +1,5 @@
 // app/layout.js
 import "./globals.css";
-import "leaflet/dist/leaflet.css";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import Navbar from "./components/Navbar";
