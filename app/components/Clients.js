@@ -1,6 +1,19 @@
 "use client";
 
 import Image from "next/image";
+import { FaLinux, FaMicrosoft, FaWindows } from "react-icons/fa";
+import {
+  SiCisco,
+  SiVmware,
+  SiNextdotjs,
+  SiReact,
+  SiTypescript,
+  SiSupabase,
+  SiPostgresql,
+  SiMysql,
+  SiGithub,
+  SiVercel,
+} from "react-icons/si";
 
 const clients = [
   {
@@ -21,7 +34,7 @@ const clients = [
   {
     name: "Maxtintas",
     image: "/images/logoMaxtintas.jpg",
-    label: "Implementación y mantenimiento de equipos",
+    label: "Implementación y mantenimiento",
   },
   {
     name: "Scopus México",
@@ -45,103 +58,147 @@ const clients = [
   },
 ];
 
+const technologies = [
+  { name: "Microsoft", icon: FaMicrosoft, color: "#737373" },
+  { name: "Windows", icon: FaWindows, color: "#0078D4" },
+  { name: "Linux", icon: FaLinux, color: "#171717" },
+  { name: "Cisco", icon: SiCisco, color: "#049FD9" },
+  { name: "VMware", icon: SiVmware, color: "#607078" },
+  { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+  { name: "React", icon: SiReact, color: "#149ECA" },
+  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+  { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
+  { name: "MySQL", icon: SiMysql, color: "#00758F" },
+  { name: "GitHub", icon: SiGithub, color: "#181717" },
+  { name: "Vercel", icon: SiVercel, color: "#000000" },
+];
+
 export default function Clients() {
-  // duplicamos la lista para el efecto loop infinito
-  const looped = [...clients, ...clients];
-
   return (
-    <div className="w-full space-y-10">
-      {/* Encabezado */}
-      <div className="space-y-3 text-left">
-        <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">
-          Clientes y proyectos
-        </p>
-        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-balance">
-          Empresas que han confiado en mi trabajo
+    <div className="w-full text-neutral-950">
+      {/* Encabezado editorial */}
+      <div className="mb-6 md:mb-8">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="h-px w-10 bg-neutral-900" />
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+            Trayectoria profesional
+          </p>
+        </div>
+
+        <h2 className="text-[clamp(2.5rem,5.5vw,5.5rem)] font-black leading-[0.95] tracking-[-0.055em]">
+          EXPERIENCIA QUE
+          <span className="block text-neutral-400">GENERA CONFIANZA.</span>
         </h2>
-        <p className="text-sm md:text-base text-slate-600 max-w-2xl">
-          He colaborado con compañías en México y Colombia en soporte técnico,
-          infraestructura, proyectos de tecnología y desarrollo de soluciones a
-          medida.
+
+        <p className="mt-4 max-w-2xl text-sm md:text-lg text-neutral-600">
+          Trayectoria en entornos corporativos e industriales, conectando
+          personas, infraestructura y tecnología.
         </p>
       </div>
 
-      {/* Marquee 1 */}
-      <div className="relative overflow-hidden py-4 border-y border-slate-200">
-        <div className="flex gap-10 animate-marquee">
-          {looped.map((client, index) => (
-            <div
-              key={`${client.name}-${index}`}
-              className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity"
-            >
-              <div className="relative w-28 h-12 md:w-32 md:h-14">
-                <Image
-                  src={client.image}
-                  alt={client.name}
-                  fill
-                  className="object-contain"
-                />
+      {/* Carrusel empresarial */}
+      <div className="border-t border-neutral-200 pt-4">
+        <p className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+          Experiencia en entornos empresariales
+        </p>
+
+        <div className="trajectory-marquee py-5">
+          <div className="trajectory-track trajectory-forward">
+            {[0, 1].map((copy) => (
+              <div
+                key={copy}
+                className="trajectory-group"
+                aria-hidden={copy === 1 ? true : undefined}
+              >
+                {clients.map((client) => (
+                  <div
+                    key={client.name}
+                    className="flex w-40 md:w-48 shrink-0 flex-col items-center justify-center gap-2"
+                  >
+                    <div className="relative h-14 w-32 md:h-16 md:w-40">
+                      <Image
+                        src={client.image}
+                        alt={client.name}
+                        fill
+                        sizes="(min-width: 768px) 160px, 128px"
+                        className="object-contain"
+                      />
+                    </div>
+
+                    <span className="text-center text-[11px] text-neutral-500">
+                      {client.label}
+                    </span>
+                  </div>
+                ))}
               </div>
-              <div className="hidden md:flex flex-col">
-                <span className="text-xs font-semibold uppercase tracking-wide text-slate-700">
-                  {client.name}
-                </span>
-                <span className="text-xs text-slate-500">{client.label}</span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Marquee 2 - sentido contrario y sin texto para variar */}
-      <div className="relative overflow-hidden py-4">
-        <div className="flex gap-10 animate-marquee-reverse">
-          {looped.map((client, index) => (
-            <div
-              key={`row2-${client.name}-${index}`}
-              className="relative w-24 h-10 md:w-28 md:h-12 opacity-70 hover:opacity-100 transition-opacity"
-            >
-              <Image
-                src={client.image}
-                alt={client.name}
-                fill
-                className="object-contain"
-              />
-            </div>
-          ))}
+      {/* Carrusel tecnológico */}
+      <div className="border-y border-neutral-200 pt-4">
+        <p className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+          Tecnologías con las que construimos
+        </p>
+
+        <div className="trajectory-marquee py-5">
+          <div className="trajectory-track trajectory-reverse">
+            {[0, 1].map((copy) => (
+              <div
+                key={copy}
+                className="trajectory-group"
+                aria-hidden={copy === 1 ? true : undefined}
+              >
+                {technologies.map(({ name, icon: Icon, color }) => (
+                  <div
+                    key={name}
+                    className="flex w-24 md:w-28 shrink-0 flex-col items-center justify-center gap-3"
+                  >
+                    <Icon
+                      className="h-10 w-10 md:h-12 md:w-12"
+                      style={{ color }}
+                      aria-hidden="true"
+                    />
+
+                    <span className="text-xs font-medium text-neutral-600">
+                      {name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Estilos internos para animaciones */}
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
+      {/* Cierre editorial */}
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-[10px] md:text-xs font-semibold uppercase tracking-[0.15em] text-neutral-500">
+        <span>México — Colombia</span>
+        <span>Infraestructura + Software</span>
+      </div>
 
-        @keyframes marqueeReverse {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-
-        .animate-marquee {
-          width: max-content;
-          animation: marquee 30s linear infinite;
-        }
-
-        .animate-marquee-reverse {
-          width: max-content;
-          animation: marqueeReverse 30s linear infinite;
-        }
-      `}</style>
+      {/* Navegación */}
+      <div className="mt-4 flex justify-center">
+        <a
+          href="#contact"
+          aria-label="Continuar a contacto"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-400 hover:bg-black hover:text-white transition-colors"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            aria-hidden="true"
+          >
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
+        </a>
+      </div>
     </div>
   );
 }

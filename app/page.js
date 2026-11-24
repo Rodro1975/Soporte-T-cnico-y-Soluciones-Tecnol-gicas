@@ -99,18 +99,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CLIENTS */}
+      {/* TRAYECTORIA PROFESIONAL */}
       <section
         id="trajectory"
-        className="min-h-screen flex items-center bg-white"
+        className="relative flex items-center bg-white text-neutral-950"
       >
-        <div className="w-full max-w-5xl mx-auto px-4 py-16 md:py-24">
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-6 md:py-8">
           <Clients />
         </div>
       </section>
 
       {/* CONTACT */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-100">
+      <section
+        id="contact"
+        className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-100"
+      >
         {/* overlay sutil */}
         <div className="absolute inset-0 bg-black/5" />
 

@@ -26,7 +26,11 @@ body {
   padding: 0;
   color: var(--foreground);
   background: var(--background);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
   line-height: 1.5;
 }
@@ -85,5 +89,72 @@ h3 {
 @media (prefers-reduced-motion: reduce) {
   .featured-project-enter {
     animation: none;
+  }
+}
+
+/* Trayectoria profesional — carruseles infinitos */
+
+.trajectory-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+}
+
+.trajectory-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.trajectory-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 2rem;
+  padding-right: 2rem;
+}
+
+@keyframes trajectory-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.trajectory-forward {
+  animation: trajectory-scroll 40s linear infinite;
+}
+
+.trajectory-reverse {
+  animation: trajectory-scroll 40s linear infinite reverse;
+}
+
+.trajectory-marquee:hover .trajectory-track,
+.trajectory-marquee:focus-within .trajectory-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trajectory-marquee {
+    overflow-x: auto;
+    mask-image: none;
+  }
+
+  .trajectory-track {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+
+  .trajectory-group[aria-hidden="true"] {
+    display: none;
   }
 }
