@@ -5,6 +5,7 @@ import Counters from "./components/Counters";
 import Clients from "./components/Clients";
 import HeroType from "./components/HeroType";
 import Capabilities from "./components/Capabilities";
+import FeaturedProjects from "./components/FeaturedProjects";
 
 export default function Home() {
   return (
@@ -63,15 +64,45 @@ export default function Home() {
 
       {/* CAPABILITIES */}
       <section id="capabilities" className="flex items-center bg-yellow-400">
-        <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-6 md:py-8">
           <Capabilities />
+        </div>
+      </section>
+
+      {/* FEATURED PROJECTS */}
+      <section
+        id="projects"
+        className="relative flex items-center bg-neutral-100 text-neutral-950"
+      >
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
+          <FeaturedProjects />
+
+          <div className="flex justify-center mt-3">
+            <a
+              href="#trajectory"
+              aria-label="Continuar a trayectoria profesional"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-400 hover:bg-black hover:text-white transition-colors"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                aria-hidden="true"
+              >
+                <path d="M12 5v14M5 12l7 7 7-7" />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 
       {/* CLIENTS */}
       <section
-        id="projects"
-        className="min-h-screen flex items-center bg-background"
+        id="trajectory"
+        className="min-h-screen flex items-center bg-white"
       >
         <div className="w-full max-w-5xl mx-auto px-4 py-16 md:py-24">
           <Clients />
