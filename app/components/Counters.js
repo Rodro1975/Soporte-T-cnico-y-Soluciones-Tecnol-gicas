@@ -1,147 +1,164 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-
-const keywords = [
-  "Next.js",
-  "Node.js",
-  "Windows Server",
-  "PostgreSQL",
-  "VS Code",
-  "Tailwind CSS",
-  "MySQL",
-  "Linux",
-  "Hyper-V",
-  "HTML & CSS",
-  "React",
-  "javaScript",
-];
+import Image from "next/image";
 
 export default function Counters() {
   const [count, setCount] = useState(0);
-  const [currentWord, setCurrentWord] = useState("");
-  const [wordIndex, setWordIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [isInView, setIsInView] = useState(false);
-  const containerRef = useRef(null); // 👈 importante: sin genérico TS
+  const containerRef = useRef(null);
 
-  const maxCount = 20;
-
-  // Detecta si el bloque está en pantalla
   useEffect(() => {
     const element = containerRef.current;
     if (!element) return;
 
+    let frame = 0;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          setCount(0); // reinicia contador cada vez que entra a pantalla
-        } else {
-          setIsInView(false);
+        cancelAnimationFrame(frame);
+
+        if (!entry.isIntersecting) return;
+
+        if (reduceMotion) {
+          setCount(20);
+          return;
         }
+
+        setCount(0);
+
+        const start = performance.now();
+        const duration = 1800;
+
+        const animate = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+
+          setCount(Math.floor(eased * 20));
+
+          if (progress < 1) {
+            frame = requestAnimationFrame(animate);
+          }
+        };
+
+        frame = requestAnimationFrame(animate);
       },
-      {
-        threshold: 0.4, // ~40% visible
-      }
+      { threshold: 0.35 }
     );
 
     observer.observe(element);
 
     return () => {
       observer.disconnect();
+      cancelAnimationFrame(frame);
     };
   }, []);
-
-  // Contador de experiencia (solo cuando está visible)
-  useEffect(() => {
-    if (!isInView) return;
-    if (count >= maxCount) return;
-
-    const timeout = setTimeout(() => {
-      setCount((c) => c + 1);
-    }, 80);
-
-    return () => clearTimeout(timeout);
-  }, [count, isInView]);
-
-  // Efecto de escritura y borrado (loop infinito)
-  useEffect(() => {
-    const word = keywords[wordIndex];
-    let charIndex = isDeleting ? word.length : 0;
-    let speed = isDeleting ? 40 : 90;
-
-    const typeEffect = setInterval(() => {
-      if (!isDeleting) {
-        if (charIndex < word.length) {
-          setCurrentWord(word.substring(0, charIndex + 1));
-          charIndex++;
-        } else {
-          setTimeout(() => setIsDeleting(true), 900);
-          clearInterval(typeEffect);
-        }
-      } else {
-        if (charIndex > 0) {
-          setCurrentWord(word.substring(0, charIndex - 1));
-          charIndex--;
-        } else {
-          setIsDeleting(false);
-          setWordIndex((prev) => (prev + 1) % keywords.length);
-          clearInterval(typeEffect);
-        }
-      }
-    }, speed);
-
-    return () => clearInterval(typeEffect);
-  }, [wordIndex, isDeleting]);
 
   return (
     <div
       ref={containerRef}
-      className="w-full grid gap-10 md:gap-14 md:grid-cols-2 md:items-center"
+      className="relative w-full overflow-hidden bg-black text-white"
     >
-      {/* Años de experiencia */}
-      <div className="space-y-4 text-left">
-        <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-yellow-400">
-          Experiencia
-        </p>
-        <h3 className="text-3xl md:text-4xl font-bold text-white text-balance">
-          Más de <span className="text-yellow-400">{count}+</span> años
-          trabajando con infraestructura, soporte corporativo y soluciones IT.
-        </h3>
-        <p className="text-sm md:text-base text-gray-300 max-w-xl">
-          He liderado operaciones y soporte tecnológico en entornos
-          multinacionales, garantizando la continuidad del negocio, la
-          estabilidad de las plataformas y una atención efectiva a los usuarios
-          en toda LATAM.
-        </p>
-      </div>
+      <div className="relative grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
 
-      {/* Tecnologías / typing */}
-      <div className="space-y-4 text-left md:text-right">
-        <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-yellow-400">
-          Stack &amp; herramientas
-        </p>
-        <div className="text-2xl md:text-3xl font-bold text-yellow-300 tracking-wide">
-          {currentWord}
-          <span className="inline-block animate-blink">|</span>
+        {/* Experiencia */}
+        <div className="relative z-10">
+
+          <div className="flex items-center gap-4">
+            <span className="h-1 w-10 bg-yellow-400" />
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] md:text-sm">
+              Experiencia
+            </p>
+          </div>
+
+          <div
+            aria-hidden="true"
+            className="mt-6 text-[clamp(7rem,17vw,15rem)] font-black leading-[0.85] tracking-[-0.08em] text-yellow-400 tabular-nums"
+          >
+            {count}+
+          </div>
+
+          <h2 className="mt-6 text-[clamp(1.8rem,3.5vw,3.5rem)] font-black uppercase leading-[1.05] tracking-[-0.045em]">
+            <span className="sr-only">Más de 20 </span>
+            <span className="block">
+              Años resolviendo
+            </span>
+            <span className="block text-neutral-400">
+              retos tecnológicos.
+            </span>
+          </h2>
+
+          <p className="mt-6 text-base leading-relaxed text-neutral-300 md:text-xl">
+            Experiencia real. Tecnología aplicada.
+            <br />
+            Soluciones que trascienden el código.
+          </p>
+
+          <div className="mt-8 flex items-center gap-5">
+            <span className="shrink-0 text-xs font-bold uppercase tracking-[0.25em] text-yellow-400 md:text-sm">
+              México — Colombia
+            </span>
+            <span className="h-px flex-1 bg-neutral-700" />
+          </div>
+
         </div>
-        <p className="text-xs md:text-sm text-gray-400 md:ml-auto md:max-w-md">
-          Experiencia integrando stacks modernos (Next.js, Supabase, Tailwind)
-          con infraestructura tradicional (Windows, Linux, redes y bases de
-          datos) para desarrollar soluciones completas y sostenibles, más allá
-          del código.
-        </p>
+
+        {/* Composición geométrica */}
+        <div className="relative flex items-center justify-center">
+          <Image
+            src="/experience/geometry.png"
+            alt=""
+            width={1376}
+            height={1119}
+            sizes="(max-width: 1023px) 100vw, 45vw"
+            className="experience-geometry h-auto w-full max-w-[680px] object-contain"
+          />
+        </div>
+
       </div>
 
-      <style jsx>{`
-        @keyframes blink {
+      {/* Navegación a la siguiente sección */}
+      <div className="mt-8 flex justify-center">
+        <a
+          href="#projects"
+          aria-label="Continuar a experiencia empresarial"
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/40 text-white transition duration-300 hover:border-yellow-400 hover:bg-yellow-400 hover:text-black"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            aria-hidden="true"
+          >
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
+        </a>
+      </div>
+
+      <style jsx global>{`
+        @keyframes experience-float {
+          0%, 100% {
+            transform: translateY(0);
+          }
           50% {
-            opacity: 0;
+            transform: translateY(-12px);
           }
         }
-        .animate-blink {
-          animation: blink 0.8s infinite;
+
+        .experience-geometry {
+          animation: experience-float 7s ease-in-out infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .experience-geometry {
+            animation: none;
+          }
         }
       `}</style>
     </div>

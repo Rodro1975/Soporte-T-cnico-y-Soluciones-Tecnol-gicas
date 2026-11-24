@@ -42,3 +42,26 @@ h3 {
     text-wrap: balance;
   }
 }
+
+/* Navegación inmersiva — página principal */
+@media (min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
+  html:has(.home-immersive) {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 80px;
+    scroll-behavior: smooth;
+  }
+
+  .home-immersive > section {
+    scroll-snap-align: start;
+    min-height: calc(100svh - 80px);
+  }
+
+  .home-immersive > section:first-child {
+    min-height: 100svh;
+    scroll-margin-top: 80px;
+  }
+
+  html:has(.home-immersive) footer {
+    scroll-snap-align: end;
+  }
+}

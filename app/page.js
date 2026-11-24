@@ -8,7 +8,7 @@ import Capabilities from "./components/Capabilities";
 
 export default function Home() {
   return (
-    <div className="bg-background text-foreground">
+    <div className="home-immersive bg-background text-foreground">
       {/* HERO - pantalla completa */}
       <section
         className="relative -mt-16 min-h-screen pt-16 md:-mt-20 md:pt-20 flex items-center justify-center bg-cover bg-center"
@@ -60,7 +60,7 @@ export default function Home() {
 
       {/* COUNTERS */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-black">
-        <div className="w-full max-w-5xl mx-auto px-4 md:px-6 py-16 md:py-24">
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
           <Counters />
         </div>
       </section>
