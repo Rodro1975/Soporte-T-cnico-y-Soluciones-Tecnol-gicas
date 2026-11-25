@@ -48,7 +48,7 @@ export default function Bio() {
 
         {/* Email */}
         <a
-          href="mailto:rodrigoivanordonezchavez@gmail.com"
+          href="mailto:contacto@rodrost.com"
           className="text-red-600 hover:text-red-700 hover:scale-110 transition-transform duration-200"
           aria-label="Email"
         >

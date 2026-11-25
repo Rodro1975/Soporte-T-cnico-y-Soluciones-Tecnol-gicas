@@ -4,7 +4,7 @@ import { useState } from "react";
 import emailjs from "emailjs-com";
 import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
-const CONTACT_EMAIL = "rodrigoivanordonezchavez@gmail.com";
+const CONTACT_EMAIL = "contacto@rodrost.com";
 
 const CONTACTS = [
   {

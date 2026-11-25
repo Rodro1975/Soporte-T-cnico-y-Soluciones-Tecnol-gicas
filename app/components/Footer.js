@@ -155,7 +155,7 @@ export default function Footer() {
               </div>
 
               <a
-                href="mailto:rodrigoivanordonezchavez@gmail.com"
+                href="mailto:contacto@rodrost.com"
                 className="flex items-center gap-3 text-sm md:text-base text-neutral-300 hover:text-yellow-400 transition-colors"
               >
                 <FaEnvelope className="text-yellow-400" />
