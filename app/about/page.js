@@ -1,139 +1,271 @@
-"use client";
-
 import Image from "next/image";
-import Bio from "../components/Bio";
 import Recognition from "../components/Recognition";
-import Work from "../components/Work";
-import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function About() {
   return (
-    <div className="bg-background text-foreground min-h-screen pb-20 overflow-x-hidden">
-      {/* HERO CON WARM.JPG */}
-      <section className="relative h-[65vh] flex items-center justify-center bg-cover bg-center md:bg-fixed overflow-hidden">
-        {/* Imagen de fondo */}
-        <Image
-          src="/images/warm.jpg"
-          alt="Fondo cálido"
-          fill
-          priority
-          className="object-cover pointer-events-none select-none"
-        />
-        {/* Overlay para que el texto se lea bien */}
-        <div className="absolute inset-0 bg-black/45" />
-
-        <div className="relative z-10 max-w-3xl px-4 text-center space-y-4">
-          <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-yellow-300">
-            Sobre mí
-          </p>
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-balance">
-            Web, infraestructura y operación IT.
-            <span className="block text-yellow-300 mt-1">
-              Experiencia para proyectos que requieren resultados reales.
+    <div className="bg-background text-foreground min-h-screen overflow-x-hidden">
+      {/* SOBRE NOSOTROS / FUNDADOR */}
+      <section className="flex items-center bg-neutral-950 text-white lg:min-h-[calc(100svh-80px)]">
+        <div className="mx-auto w-full max-w-7xl px-5 py-6 md:px-10 lg:py-5">
+          {/* Identidad */}
+          <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] md:text-xs">
+            <span className="text-yellow-400">
+              Tecnología / Experiencia / Visión
             </span>
+
+            <span className="text-neutral-400">México — Colombia</span>
+          </div>
+
+          {/* Título monumental */}
+          <h1 className="my-5 whitespace-nowrap text-center text-[clamp(1.8rem,7.5vw,7rem)] font-black uppercase leading-[0.9] tracking-[-0.045em]">
+            Sobre nosotros
+            <span className="text-yellow-400">.</span>
           </h1>
-          <p className="text-sm md:text-base text-gray-200 max-w-2xl mx-auto">
-            Hago que la tecnología funcione para ti y potencie tu día a día.
-          </p>
-        </div>
-      </section>
 
-      {/* BIO */}
-      <section className="min-h-screen flex items-center">
-        <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 border-t border-white/5 w-full">
-          <Bio />
-        </div>
-      </section>
+          {/* Presentación del fundador */}
+          <div className="grid items-center gap-8 lg:grid-cols-[0.45fr_0.55fr] lg:gap-12">
+            {/* Columna izquierda */}
+            <div className="space-y-5">
+              <div className="flex items-center gap-3">
+                <span className="h-1 w-9 bg-yellow-400" />
 
-      {/* CÓMO TRABAJO / QUÉ APORTO */}
-      <section className="min-h-screen flex items-center">
-        <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 border-t border-white/5 w-full">
-          <Work />
-        </div>
-      </section>
-
-      {/* RECOGNITION */}
-      <div className="border-t border-white/5">
-        <Recognition />
-      </div>
-
-      {/* PRESENCIA GEOGRÁFICA */}
-      <section className="relative min-h-screen w-full flex items-center bg-transparent overflow-x-hidden">
-        {/* Corte curvo inferior */}
-        <div className="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-[140vw] md:w-[180vw] h-40 bg-background rounded-t-[999px]" />
-
-        <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 w-full">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ amount: 0.4 }}
-            transition={{ duration: 0.5 }}
-            className="text-3xl font-extrabold text-center mb-4 text-yellow-400"
-          >
-            Experiencia internacional
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ amount: 0.4 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-sm md:text-base text-gray-700 text-center max-w-3xl mx-auto mb-12"
-          >
-            México & Colombia: dos contextos, un mismo enfoque estratégico.
-          </motion.p>
-
-          <div className="grid md:grid-cols-2 gap-10 md:gap-14">
-            {/* Mexico */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ amount: 0.3 }}
-              transition={{ duration: 0.6 }}
-              className="relative shadow-xl overflow-hidden h-[260px] rounded-xl group"
-            >
-              <Image
-                src="/images/mexico.jpg"
-                alt="México"
-                fill
-                className="object-cover group-hover:scale-110 transition duration-700"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition" />
-              <div className="absolute bottom-0 p-6 backdrop-blur-sm bg-black/25 w-full">
-                <h3 className="text-yellow-400 font-extrabold text-lg mb-1">
-                  México
-                </h3>
-                <p className="text-gray-100 text-sm">
-                  Soporte, despliegues técnicos y liderazgo operativo real.
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-yellow-400">
+                  01 / Nuestro origen
                 </p>
               </div>
-            </motion.div>
+
+              <h2 className="text-2xl font-semibold leading-tight tracking-tight md:text-3xl lg:text-4xl">
+                Experiencia que se transforma en{" "}
+                <span className="text-yellow-400">soluciones.</span>
+              </h2>
+
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold md:text-2xl">
+                  Rodrigo Iván Ordóñez Chávez
+                </h3>
+
+                <p className="text-xs font-semibold uppercase tracking-wider text-yellow-400">
+                  Fundador · Ingeniero en Desarrollo de Software
+                </p>
+              </div>
+
+              <p className="text-sm leading-relaxed text-neutral-300 md:text-base">
+                Rodro Soluciones Tecnológicas nace de una trayectoria
+                profesional construida entre México y Colombia, integrando
+                infraestructura tecnológica, operaciones IT y desarrollo de
+                software para ofrecer soluciones útiles, confiables y adaptadas
+                a las necesidades reales de negocios y empresas.
+              </p>
+
+              <a
+                href="https://www.linkedin.com/in/rodrigo-iv%C3%A1n-ordo%C3%B1ez-ch%C3%A1vez-788127189/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-yellow-400"
+              >
+                Conocer trayectoria profesional
+                <span className="text-yellow-400">↗</span>
+              </a>
+            </div>
+
+            {/* Columna derecha */}
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-900 lg:aspect-[5/4]">
+              <Image
+                src="/images/fundador-rodro.webp"
+                alt="Retrato de Rodrigo Iván Ordóñez Chávez, fundador de Rodro Soluciones Tecnológicas"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 650px"
+                className="object-cover object-center"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NUESTRA FILOSOFÍA */}
+      <section className="flex items-center bg-yellow-400 text-neutral-950 lg:min-h-[calc(100svh-80px)]">
+        <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 lg:py-12">
+          {/* Identificador */}
+          <div className="mb-8 flex items-center gap-3">
+            <span className="h-1 w-9 bg-black" />
+
+            <p className="text-xs font-bold uppercase tracking-[0.2em]">
+              02 / Nuestra filosofía
+            </p>
+          </div>
+
+          {/* Declaración principal */}
+          <h2 className="text-[clamp(2.5rem,6.5vw,6.5rem)] font-black uppercase leading-[0.92] tracking-[-0.045em]">
+            La tecnología
+            <span className="block">debe resolver,</span>
+            <span className="block">no complicar.</span>
+          </h2>
+
+          {/* Introducción */}
+          <p className="mt-7 max-w-3xl text-lg font-medium leading-relaxed md:text-xl">
+            Creemos en soluciones que aportan valor real, simplifican la
+            operación y evolucionan con las necesidades de cada negocio.
+          </p>
+
+          {/* Principios */}
+          <div className="mt-10 grid gap-8 border-t border-black/30 pt-8 md:grid-cols-3 md:gap-12">
+            <div className="space-y-3">
+              <span className="text-4xl font-black">01.</span>
+
+              <h3 className="text-2xl font-bold">Practicidad</h3>
+
+              <p className="text-base leading-relaxed">
+                Desarrollamos e implementamos soluciones útiles, enfocadas en
+                resolver necesidades concretas, sin añadir complejidad
+                innecesaria.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <span className="text-4xl font-black">02.</span>
+
+              <h3 className="text-2xl font-bold">Operación real</h3>
+
+              <p className="text-base leading-relaxed">
+                Entendemos que la tecnología debe funcionar más allá de la
+                teoría, adaptándose a los procesos y desafíos del día a día.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <span className="text-4xl font-black">03.</span>
+
+              <h3 className="text-2xl font-bold">Evolución inteligente</h3>
+
+              <p className="text-base leading-relaxed">
+                Apostamos por soluciones flexibles que puedan adaptarse, mejorar
+                y crecer junto con las necesidades de cada negocio.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TRAYECTORIA PROFESIONAL */}
+      <Recognition />
+
+      {/* EXPERIENCIA INTERNACIONAL */}
+      <section className="flex items-center bg-neutral-950 text-white lg:min-h-[calc(100svh-80px)]">
+        <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 lg:py-8">
+          {/* Identificador */}
+          <div className="mb-5 flex items-center gap-3">
+            <span className="h-1 w-9 bg-yellow-400" />
+
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-yellow-400">
+              04 / Experiencia internacional
+            </p>
+          </div>
+
+          {/* Encabezado */}
+          <h2 className="text-[clamp(2rem,5.5vw,5.5rem)] font-black uppercase leading-[0.92] tracking-[-0.045em]">
+            Dos países.
+            <span className="block">
+              Una misma visión
+              <span className="text-yellow-400">.</span>
+            </span>
+          </h2>
+
+          {/* Países */}
+          <div className="mt-7 grid gap-8 md:grid-cols-2 md:gap-10">
+            {/* México */}
+            <article className="space-y-3">
+              <div className="relative aspect-video overflow-hidden">
+                <Image
+                  src="/images/mexico-commercial.webp"
+                  alt="Paseo de la Reforma y Ángel de la Independencia en Ciudad de México"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 600px"
+                  className="object-cover"
+                />
+              </div>
+
+              <h3 className="text-4xl font-black uppercase tracking-tight">
+                México<span className="text-yellow-400">.</span>
+              </h3>
+
+              <p className="text-xs font-bold uppercase tracking-wider text-yellow-400">
+                Tecnología y operación
+              </p>
+
+              <p className="text-sm leading-relaxed text-neutral-300 md:text-base">
+                Soporte técnico, infraestructura, desarrollo de software y
+                soluciones digitales para negocios y empresas.
+              </p>
+            </article>
 
             {/* Colombia */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ amount: 0.3 }}
-              transition={{ duration: 0.6 }}
-              className="relative shadow-xl overflow-hidden h-[260px] rounded-xl group"
-            >
-              <Image
-                src="/images/colombia.jpg"
-                alt="Colombia"
-                fill
-                className="object-cover group-hover:scale-110 transition duration-700"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition" />
-              <div className="absolute bottom-0 p-6 backdrop-blur-sm bg-black/25 w-full">
-                <h3 className="text-yellow-400 font-extrabold text-lg mb-1">
-                  Colombia
-                </h3>
-                <p className="text-gray-100 text-sm">
-                  Proyectos multinacionales con enfoque estratégico y operativo.
-                </p>
+            <article className="space-y-3">
+              <div className="relative aspect-video overflow-hidden">
+                <Image
+                  src="/images/colombia-commercial.webp"
+                  alt="Panorámica urbana de Bogotá, Colombia"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 600px"
+                  className="object-cover"
+                />
               </div>
-            </motion.div>
+
+              <h3 className="text-4xl font-black uppercase tracking-tight">
+                Colombia<span className="text-yellow-400">.</span>
+              </h3>
+
+              <p className="text-xs font-bold uppercase tracking-wider text-yellow-400">
+                Experiencia y colaboración
+              </p>
+
+              <p className="text-sm leading-relaxed text-neutral-300 md:text-base">
+                Experiencia corporativa, integración tecnológica y colaboración
+                comercial en proyectos empresariales.
+              </p>
+            </article>
           </div>
+
+          {/* Cierre */}
+          <p className="mt-6 border-t border-white/15 pt-4 text-sm text-neutral-400">
+            Conectamos experiencia, conocimiento y oportunidades más allá de las
+            fronteras.
+          </p>
+        </div>
+      </section>
+      {/* CONSTRUYAMOS JUNTOS */}
+      <section className="bg-yellow-400 text-neutral-950">
+        <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 lg:py-20">
+          {/* Identificador */}
+          <div className="mb-6 flex items-center gap-3">
+            <span className="h-1 w-9 bg-black" />
+
+            <p className="text-xs font-bold uppercase tracking-[0.2em]">
+              05 / Construyamos juntos
+            </p>
+          </div>
+
+          {/* Encabezado */}
+          <h2 className="text-[clamp(2.5rem,6vw,6rem)] font-black uppercase leading-[0.92] tracking-[-0.045em]">
+            El futuro se
+            <span className="block">construye juntos.</span>
+          </h2>
+
+          {/* Mensaje comercial */}
+          <p className="mt-6 max-w-3xl text-lg font-medium leading-relaxed md:text-xl">
+            Cada negocio tiene desafíos diferentes. Transformemos los tuyos en
+            oportunidades a través de la tecnología.
+          </p>
+
+          {/* CTA */}
+          <Link
+            href="/contact"
+            className="mt-8 inline-flex items-center gap-5 rounded-full bg-black px-7 py-4 text-sm font-bold text-white transition-colors hover:bg-neutral-800"
+          >
+            Empecemos a colaborar
+            <span aria-hidden="true">↗</span>
+          </Link>
         </div>
       </section>
     </div>
