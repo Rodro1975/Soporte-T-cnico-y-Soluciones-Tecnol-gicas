@@ -1,4 +1,3 @@
-"use client";
 
 import React from "react";
 import Counters from "./components/Counters";
@@ -6,6 +5,12 @@ import Clients from "./components/Clients";
 import HeroType from "./components/HeroType";
 import Capabilities from "./components/Capabilities";
 import FeaturedProjects from "./components/FeaturedProjects";
+
+export const metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (

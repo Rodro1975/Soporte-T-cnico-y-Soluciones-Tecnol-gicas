@@ -1,11 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Portafolio | Rodro Soluciones Tecnológicas",
-  description:
-    "Explora nuestros productos de software, soluciones empresariales, innovación industrial y proyectos de transformación digital.",
-};
 
 const projects = {
   suma: {

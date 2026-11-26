@@ -1,7 +1,10 @@
 export const metadata = {
-  title: "Portafolio | Rodrigo Iván Ordoñez Chávez",
+  title: "Portafolio de soluciones",
   description:
-    "Proyectos de infraestructura, soporte corporativo y desarrollo web realizados por Rodrigo Iván Ordóñez Chávez para empresas y clientes en LATAM.",
+    "Explora nuestros productos de software, plataformas SaaS, soluciones empresariales, innovación industrial y proyectos de transformación digital.",
+  alternates: {
+    canonical: "/portfolio",
+  },
 };
 
 export default function PortfolioLayout({ children }) {
