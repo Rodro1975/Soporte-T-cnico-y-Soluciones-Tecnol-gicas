@@ -1,88 +1,108 @@
-"use client";
-
-import Image from "next/image";
-import { motion } from "framer-motion";
+const capabilities = [
+  {
+    number: "01",
+    title: "BMS",
+    description: "Gestión, automatización y control de instalaciones.",
+  },
+  {
+    number: "02",
+    title: "CCTV",
+    description: "Integración de sistemas de seguridad y videovigilancia.",
+  },
+  {
+    number: "03",
+    title: "Data center",
+    description:
+      "Sistemas de supresión de incendios para infraestructura crítica.",
+  },
+  {
+    number: "04",
+    title: "KNX",
+    description: "Automatización e iluminación inteligente de instalaciones.",
+  },
+];
 
 export default function Recognition() {
   return (
-    <section className="relative w-full py-20 md:py-24 bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-100">
-      <div className="max-w-5xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center gap-16">
-        {/* Bloque imágenes vertical */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col items-center gap-6 md:w-1/2 w-full"
-        >
-          <div className="relative w-full max-w-md aspect-[3/4] shadow-2xl">
-            <Image
-              src="/images/reconocimientoIff.jpg"
-              alt="Reconocimiento IFF Colombia"
-              fill
-              className="object-contain"
-            />
+    <section className="flex items-center bg-white text-neutral-950 lg:min-h-[calc(100svh-80px)]">
+      <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 lg:py-12">
+        {/* Identificador */}
+        <div className="mb-6 flex items-center gap-3">
+          <span className="h-1 w-9 bg-yellow-400" />
+
+          <p className="text-xs font-bold uppercase tracking-[0.2em]">
+            03 / Trayectoria profesional
+          </p>
+        </div>
+
+        {/* Encabezado */}
+        <h2 className="text-[clamp(2.5rem,6.5vw,6.5rem)] font-black uppercase leading-[0.92] tracking-[-0.045em]">
+          Experiencia
+          <span className="block">
+            que respalda
+            <span className="text-yellow-400">.</span>
+          </span>
+        </h2>
+
+        {/* Experiencia y capacidades */}
+        <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-20">
+          {/* Experiencia corporativa */}
+          <div className="space-y-5">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-neutral-500">
+              Experiencia corporativa / Colombia
+            </p>
+
+            <h3 className="text-4xl font-black md:text-5xl">IFF Colombia</h3>
+
+            <p className="text-xl font-semibold">
+              Infraestructura e integración tecnológica.
+            </p>
+
+            <p className="text-base leading-relaxed text-neutral-600">
+              Experiencia en el liderazgo de implementación tecnológica,
+              coordinación técnica y puesta en marcha de sistemas para
+              instalaciones corporativas e industriales.
+            </p>
+
+            <div className="border-l-4 border-yellow-400 py-2 pl-5">
+              <p className="text-lg font-bold">Reconocimiento profesional</p>
+
+              <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                Reconocimiento recibido durante la trayectoria profesional en
+                IFF Colombia, vinculada a proyectos de infraestructura
+                tecnológica.
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 w-full max-w-md">
-            {/* Esta la sigues ocultando en móvil como antes */}
-            <div className="relative h-40 shadow-lg hidden md:block">
-              <Image
-                src="/images/fraganciasIff.jpg"
-                alt="Instalaciones IFF Colombia"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-40 shadow-lg">
-              <Image
-                src="/images/megaport.jpg"
-                alt="Infraestructura y conectividad"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </motion.div>
+          {/* Capacidades técnicas */}
+          <div>
+            {capabilities.map((item) => (
+              <div
+                key={item.number}
+                className="flex items-start gap-5 border-b border-neutral-200 py-4 first:pt-0"
+              >
+                <span className="text-2xl font-black text-yellow-700">
+                  {item.number}.
+                </span>
 
-        {/* Bloque texto */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-sm md:text-base text-gray-800 leading-relaxed space-y-4 md:w-1/2 w-full"
-        >
-          <h2 className="text-2xl md:text-3xl font-extrabold mb-4 text-gray-900 text-balance">
-            Reconocimiento en infraestructura IT
-          </h2>
-          <p>
-            Lideré la implementación tecnológica y de BMS en la planta de IFF
-            Colombia, desde la coordinación técnica a la puesta en marcha.
-          </p>
-          <ul className="list-disc list-inside space-y-1 ml-1">
-            <li>
-              <span className="font-semibold">BMS</span> y control de
-              instalaciones.
-            </li>
-            <li>
-              <span className="font-semibold">CCTV</span> y sistemas de
-              seguridad.
-            </li>
-            <li>
-              <span className="font-semibold">Supresión de incendios</span> para
-              data center.
-            </li>
-            <li>
-              Iluminación inteligente{" "}
-              <span className="font-semibold">(KNX)</span>.
-            </li>
-          </ul>
-          <p>
-            Estos proyectos no sólo son diplomas: reflejan cómo integro
-            tecnología y operación para generar valor real.
-          </p>
-        </motion.div>
+                <div className="space-y-1">
+                  <h4 className="text-xl font-bold">{item.title}</h4>
+
+                  <p className="text-sm leading-relaxed text-neutral-600 md:text-base">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Contexto profesional */}
+        <p className="mt-8 border-t border-neutral-200 pt-4 text-xs text-neutral-500">
+          Experiencia adquirida durante la trayectoria profesional del fundador
+          de Rodro Soluciones Tecnológicas.
+        </p>
       </div>
     </section>
   );

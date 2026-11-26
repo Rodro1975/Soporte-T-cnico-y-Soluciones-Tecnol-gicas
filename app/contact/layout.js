@@ -1,9 +1,12 @@
 export const metadata = {
-  title: "Contact Us",
+  title: "Contacto",
   description:
-    "Contacta con nosotros en Soporte Técnico y Soluciones Tecnológicas.",
+    "Contacta con Rodro Soluciones Tecnológicas en México y Colombia. Hablemos de infraestructura IT/OT, soporte tecnológico, Field Services y desarrollo de software.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
-export default function AboutLayout({ children }) {
+export default function ContactLayout({ children }) {
   return <>{children}</>;
 }
