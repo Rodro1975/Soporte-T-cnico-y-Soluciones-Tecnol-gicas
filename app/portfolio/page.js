@@ -294,7 +294,7 @@ export default function PortfolioPage() {
 
           <h2 className="mt-6 max-w-5xl text-4xl font-black uppercase leading-[0.95] tracking-tight md:text-7xl">
             Software que
-            <span className="block text-neutral-400">impulsa operaciones.</span>
+            <span className="block text-neutral-600">impulsa operaciones.</span>
           </h2>
 
           <div className="mt-12 grid gap-14 md:grid-cols-2 md:gap-10">
@@ -397,7 +397,7 @@ export default function PortfolioPage() {
 
             <h2 className="mt-5 text-4xl font-black uppercase leading-none tracking-tight md:text-6xl">
               Exploramos.
-              <span className="block text-neutral-400">Construimos.</span>
+              <span className="block text-neutral-600">Construimos.</span>
             </h2>
 
             <div className="mt-7 divide-y divide-neutral-300 border-y border-neutral-300">
