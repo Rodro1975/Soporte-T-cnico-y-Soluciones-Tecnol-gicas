@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es">
+    <html lang="es" data-scroll-behavior="smooth">
       <body className="bg-background text-foreground">
         <Navbar />
         {/* padding-top para que el contenido no quede debajo del navbar fijo */}
