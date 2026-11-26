@@ -82,7 +82,7 @@ export default function Recognition() {
                 key={item.number}
                 className="flex items-start gap-5 border-b border-neutral-200 py-4 first:pt-0"
               >
-                <span className="text-2xl font-black text-yellow-600">
+                <span className="text-2xl font-black text-yellow-700">
                   {item.number}.
                 </span>
 
