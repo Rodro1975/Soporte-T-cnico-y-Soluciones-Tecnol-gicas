@@ -186,7 +186,7 @@ export default function Footer() {
                   ) : (
                     <span
                       title="Próximamente"
-                      className="inline-flex items-center gap-3 text-sm md:text-base text-neutral-500"
+                      className="inline-flex items-center gap-3 text-sm md:text-base text-neutral-400"
                     >
                       <Icon size={19} aria-hidden="true" />
                       {name}
