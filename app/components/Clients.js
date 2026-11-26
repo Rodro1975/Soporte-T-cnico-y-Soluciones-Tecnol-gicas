@@ -88,7 +88,7 @@ export default function Clients() {
 
         <h2 className="text-[clamp(2.5rem,5.5vw,5.5rem)] font-black leading-[0.95] tracking-[-0.055em]">
           EXPERIENCIA QUE
-          <span className="block text-neutral-400">GENERA CONFIANZA.</span>
+          <span className="block text-neutral-600">GENERA CONFIANZA.</span>
         </h2>
 
         <p className="mt-4 max-w-2xl text-sm md:text-lg text-neutral-600">

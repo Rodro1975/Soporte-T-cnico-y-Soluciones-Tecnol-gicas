@@ -66,7 +66,7 @@ export default function FeaturedProjects() {
 
       <h2 className="text-4xl md:text-6xl font-black uppercase leading-none tracking-tight">
         Tecnología que
-        <span className="block text-neutral-400">toma forma.</span>
+        <span className="block text-neutral-600">toma forma.</span>
       </h2>
 
       <div
@@ -111,7 +111,7 @@ export default function FeaturedProjects() {
         </div>
 
         <div className="space-y-4">
-          <p className="text-xs uppercase tracking-[0.2em] font-semibold text-neutral-500">
+          <p className="text-xs uppercase tracking-[0.2em] font-semibold text-neutral-600">
             {project.category}
           </p>
 
@@ -123,7 +123,7 @@ export default function FeaturedProjects() {
             {project.description}
           </p>
 
-          <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
+          <p className="text-xs font-semibold uppercase tracking-wider text-neutral-600">
             {project.status}
           </p>
 
@@ -146,7 +146,7 @@ export default function FeaturedProjects() {
           Explorar portafolio completo
         </Link>
 
-        <span className="text-sm font-semibold tabular-nums text-neutral-500">
+        <span className="text-sm font-semibold tabular-nums text-neutral-600">
           {String(active + 1).padStart(2, "0")} / 04
         </span>
       </div>
